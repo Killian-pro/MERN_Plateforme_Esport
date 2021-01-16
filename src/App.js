@@ -2,12 +2,12 @@ import React from "react";
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
-import Home from "./Pages/home"
-import Stats from "./Pages/stats"
-import Stream from "./Pages/stream"
+import Home from "./Pages/Home"
+import Stats from "./Pages/Stats"
+import Stream from "./Pages/Stream"
+import Actualite from "./Pages/Actualite"
 
 
 export default function App() {
@@ -20,6 +20,9 @@ export default function App() {
           </Route>
           <Route path="/Stream">
             <Stream />
+          </Route>
+          <Route path="/Actualites">
+            <Actualite />
           </Route>
           <Route path="/">
             <Home />
