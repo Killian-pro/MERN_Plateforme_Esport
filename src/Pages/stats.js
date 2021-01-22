@@ -6,10 +6,13 @@ import ScrapSteam from "../Componant/Scraper";
 
 function Stats() {
     return (
-        <div className="App">
-            stats
-            <ScrapSteam></ScrapSteam>
+        <div>
             <Link to="/Home">Home</Link>
+
+            <div className="containerNews">
+                Les 10 premiers joueurs LOL
+                    <ScrapSteam></ScrapSteam>
+            </div>
         </div>
     );
 }

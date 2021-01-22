@@ -18,7 +18,6 @@ function Stream() {
                 Video stream gotaga :
                 <ReactPlayer url='https://www.twitch.tv/gotaga' />
             </div>
-           
         </div>
     );
 }
