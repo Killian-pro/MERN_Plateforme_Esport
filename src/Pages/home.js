@@ -4,6 +4,7 @@ import {
 } from "react-router-dom";
 import '../Style/Home.css';
 import News from '../Componant/News'
+import Menu from '../Componant/Menu'
 
 class Home extends Component {
   constructor(props) {
@@ -17,6 +18,7 @@ class Home extends Component {
   render() {
     return (
       <div className="body">
+        <Menu></Menu>
         <div className="imageback"> </div >
         <div className="container">
           <div className="card">
