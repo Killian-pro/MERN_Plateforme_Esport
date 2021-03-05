@@ -6,7 +6,7 @@ import {
 
 function Menu() {
     return (
-        <div style={{display: 'flex', flexdirection : 'row', justifyContent:'center',alignItems:'center'}}>
+        <div style={{display: 'flex', flexdirection : 'row', justifyContent:'center',alignItems:'center',boxShadow: "1px 2px 1px #9E9E9E"}}>
             <div style={{marginRight:'7%',fontWeight:'bold',fontSize:'120%'}}>What's the game</div>
             <div style={{margin:'2%',marginRight:'1%'}}>
             <Link style={{color:'#827878' ,textDecoration:'none',fontWeight:'bold',fontSize:'75%'}} to="/">ACCUEIL</Link>
