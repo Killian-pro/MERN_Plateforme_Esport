@@ -3,7 +3,7 @@ import {
   Link
 } from "react-router-dom";
 import '../Style/Home.css';
-import News from '../Componant/News'
+// import News from '../Componant/News'
 import Menu from '../Componant/Menu'
 
 class Home extends Component {
@@ -53,7 +53,7 @@ class Home extends Component {
           <h2>Nos dernières news</h2>
           <div className="affichageNews">
             {/* {data.map((e, i) =>e)} */}
-            <News id = {this.state.id}/>
+            {/* <News id = {this.state.id}/> */}
           </div>
           <Link className="go" to="/Actualites">Voir plus d'articles de blog</Link>
         </div>
