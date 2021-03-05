@@ -10,10 +10,6 @@
     /* filter: grayscale(40%) blur(5px);  */
   }
   .text{
-
     color: white;
 
-  }
-  p.capitale {
-    text-transform: capitalize;
   }
