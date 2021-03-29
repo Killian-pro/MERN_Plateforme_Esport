@@ -11,14 +11,14 @@ function MediumActualite() {
     const articles = [];
     for (let i = 1; i < 4; i++) {
         articles.push(
-        <div style={{marginLeft:'10%',width:400,marginTop:'5%',marginBottom:'5%', justifyContent:'center',alignItems:'center'}}>
+        <div style={{width:400,marginTop:'5%',marginBottom:'5%',marginRight:'5%', justifyContent:'center',alignItems:'center'}}>
             <img style={{width:'100%' ,borderRadius:10}} src={setup} alt="article" />
             <News id={i} />
         </div>)
 
     }
     return (
-        <div>
+        <div style={{marginLeft:'10%'}}>
             <div style={{flexDirection:'row',display:'flex',marginRight:'10%'}}>
             {articles}
             </div>
