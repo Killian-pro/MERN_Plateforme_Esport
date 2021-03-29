@@ -3,7 +3,6 @@ import {
   Link
 } from "react-router-dom";
 import '../Style/Home-habib.css';
-import News from '../Componant/News'
 import Menu from '../Componant/Menu';
 
 function Home() {
