@@ -13,7 +13,6 @@ function Home() {
 
       <div className="logo" >
 
-        <input type="button" value="Créer son compte" />
         <div className= "titre">
           <h1>Bienvenue sur Whats game</h1>
         <div className="soustitre">
