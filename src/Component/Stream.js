@@ -35,6 +35,7 @@ function Stream() {
     function addMore()
     {
         let nb=mySiteStream.length-more
+        //pour un bette d'affichage, choix arbitraire
         if(nb<3)
         {
             setMore(more+(mySiteStream.length-more))

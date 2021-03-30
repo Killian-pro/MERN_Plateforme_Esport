@@ -1,8 +1,8 @@
 import {
     Link
 } from "react-router-dom";
-import ScrapSteam from "../Componant/Scraper";
-import Menu from '../Componant/Menu';
+import ScrapSteam from "../Component/Scraper";
+import Menu from '../Component/Menu';
 import { RadialChart } from 'react-vis';
 import { useState } from "react";
 import { IoIosSearch } from "react-icons/io";

@@ -18,7 +18,7 @@ function Menu() {
             <Link style={{color:'#827878',textDecoration:'none',fontWeight:'bold',fontSize:'75%'}} to="/Stats">STATISTIQUES</Link>
             </div>
             <div style={{margin:'2%',marginRight:'1%'}}>
-            <Link style={{color:'#827878',textDecoration:'none',fontWeight:'bold',fontSize:'75%'}} to="/Recrutment">RECRUTEMENT</Link>
+            <Link style={{color:'#827878',textDecoration:'none',fontWeight:'bold',fontSize:'75%'}} to="/Recrutement">RECRUTEMENT</Link>
             </div>
             <div style={{margin:'2%',marginRight:'5%'}}>
             <Link style={{color:'#827878',textDecoration:'none',fontWeight:'bold',fontSize:'75%'}} to="/Streams">STREAMS</Link>

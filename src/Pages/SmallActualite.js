@@ -2,8 +2,8 @@ import React, { Component, useState } from 'react';
 import {
     Link
 } from "react-router-dom";
-import Menu from '../Componant/Menu';
-import News from '../Componant/MainNews';
+import Menu from '../Component/Menu';
+import News from '../Component/MainNews';
 import setup from '../Img/setup.jpg'
 
 function MediumActualite() {

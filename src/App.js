@@ -8,6 +8,7 @@ import Home from "./Pages/Home-habib"
 import Stats from "./Pages/Stats"
 import Stream from "./Pages/Stream"
 import Actualite from "./Pages/Actualite"
+import Recruitment from "./Pages/Recruitment"
 
 
 export default function App() {
@@ -18,8 +19,8 @@ export default function App() {
           <Route path="/Stats">
             <Stats />
           </Route>
-          <Route path="/Recrutment">
-            <Stats />
+          <Route path="/Recrutement">
+            <Recruitment />
           </Route>
           <Route path="/Streams">
             <Stream />

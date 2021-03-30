@@ -4,7 +4,7 @@ import {
 } from "react-router-dom";
 import '../Style/Home.css';
 // import News from '../Componant/News'
-import Menu from '../Componant/Menu'
+import Menu from '../Component/Menu'
 
 class Home extends Component {
   constructor(props) {
