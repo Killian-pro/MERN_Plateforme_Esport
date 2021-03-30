@@ -13,7 +13,62 @@
   {
     color:white;
     margin-left: 200px;
+    font-size: 25px;
   }
+  .soustitre
+  {
+    font-size: 18px;
+  }
+  .buttonconnexion
+  
+    {
+      font-family: 'Source Sans Pro', sans-serif;
+      box-sizing: border-box;
+      font-weight: 300;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .btn-wrapper{
+      position: fixed;
+      top: calc(50% - 22px);
+      left: 0;
+      width: 100%;
+      text-align: center;
+    }
+    
+    .btn{
+      display: inline-block;
+      box-shadow: none;
+      appearance: none;
+      border: 0;
+      outline: 0;
+      background-color: #440BD4;
+      height: 80px;
+      line-height: 42px;
+      padding: 0 45px;
+      font-size: 40px;
+      border-radius: 20px;
+      color: white;
+      cursor: pointer;
+      transition: all .5s;
+      transition-timing-function: cubic-bezier(.2, 3, .4, 1);
+      user-select: none;
+      top: 500px;
+      bottom: 200px;
+      position: relative;
+    }
+      
+      &:hover{
+        transform: scale(1.1, 1.1);
+      }
+      
+      &:active{
+        transform: scale(1.05, 1.05);
+      }
+    
+    
+  
   /* .button{
     background: rgba(0, 0, 0, 0) none repeat scroll 0% 0% padding-box;
     cursor: pointer;
