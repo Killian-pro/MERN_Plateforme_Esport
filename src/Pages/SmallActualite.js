@@ -20,7 +20,7 @@ function MediumActualite() {
     for (let i = 4; i < more; i++) {
         articles.push(
             <>
-                <div style={{ marginLeft: '10%', marginTop: '1%', marginBottom: '1%', justifyContent: 'center', alignItems: 'center', display: 'flex' }}>
+                <div style={{ marginTop: '1%', marginBottom: '1%', justifyContent: 'center', alignItems: 'center', display: 'flex' }}>
                     <img style={{ width: '20%', borderRadius: 10 }} src={setup} alt="article" />
                     <News id={i} description={false} />
                 </div>
@@ -30,7 +30,7 @@ function MediumActualite() {
 
     }
     return (
-        <div>
+        <div style={{marginLeft:'10%'}}>
             {articles}
             <div style={{justifyContent:'center', alignItems: 'center',display:'flex',marginBottom:'10%',marginTop:'5%'}}>
                 <button onClick={()=> addMore()} style={{ borderColor: '#440BD4', backgroundColor: '#440BD4', borderWidth: 2, borderStyle: 'solid', borderRadius: 15, padding: 10, alignContent: 'center', color: 'white', fontWeight: 'bold', textAlign: 'center',width:100 }}>Voir plus</button>

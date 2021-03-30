@@ -1,5 +1,7 @@
 import React from 'react'
-import ReactPlayer from 'react-player'
+import Menu from '../Componant/Menu';
+import RecupStream from '../Componant/Stream';
+import footer from '../Img/footer.png'
 import {
     Link
 } from "react-router-dom";
@@ -7,17 +9,10 @@ import {
 
 function Stream() {
     return (
-        <div className="App">
-           <Link to="/Home">Home</Link>
-            <div className="container">
-                Video tuto :
-            <ReactPlayer url='https://www.youtube.com/watch?v=cO-NWWWan8I' />
-            </div>
-            
-            <div className="container">
-                Video stream gotaga :
-                <ReactPlayer url='https://www.twitch.tv/gotaga' />
-            </div>
+        <div >
+            <Menu />
+            <RecupStream />
+            <img style={{ width: '100%' }} src={footer} alt="footer" />
         </div>
     );
 }
