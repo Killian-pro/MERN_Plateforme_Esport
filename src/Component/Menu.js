@@ -1,7 +1,7 @@
 import React, { Component, useState } from 'react';
 import '../Style/News.css';
 import Modal from 'react-modal';
-import Connexion from '../Pages/Connexion'
+import Connexion from '../Pages/Connection'
 import Register from '../Pages/Register'
 import {
     Link

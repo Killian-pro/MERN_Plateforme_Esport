@@ -7,7 +7,7 @@ import {
 import Home from "./Pages/Home"
 import Stats from "./Pages/Stats"
 import Stream from "./Pages/Stream"
-import Actualite from "./Pages/Actualite"
+import News from "./Pages/News"
 import Recruitment from "./Pages/Recruitment"
 
 
@@ -26,7 +26,7 @@ export default function App() {
             <Stream />
           </Route>
           <Route path="/Actualites">
-            <Actualite />
+            <News />
           </Route>
           <Route path="/">
             <Home />
