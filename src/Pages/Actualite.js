@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import Menu from '../Component/Menu';
-import MainNews from '../Component/MainNews';
+import MainNews from '../Component/News/MainNews';
 import setup from '../Img/setup.jpg'
 import footer from '../Img/footer.png'
-import MediumActualite from '../Component/MediumActualite'
-import SmallActualite from '../Component/SmallActualite'
-
+import MediumActualite from '../Component/News/MediumNews'
+import SmallActualite from '../Component/News/SmallNews'
+    
 function Actualite() {
     
     return (

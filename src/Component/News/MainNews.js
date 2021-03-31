@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../Style/News.css';
+import '../../Style/News.css';
 import * as rssParser from 'react-native-rss-parser';
 
 class MainNews extends Component {

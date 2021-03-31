@@ -2,11 +2,11 @@ import React, { Component, useState } from 'react';
 import {
     Link
 } from "react-router-dom";
-import Menu from '../Component/Menu';
-import News from '../Component/MainNews';
-import setup from '../Img/setup.jpg'
+import Menu from '../Menu';
+import News from './MainNews';
+import setup from '../../Img/setup.jpg'
 
-function MediumActualite() {
+function SmallNews() {
 
     const [more,setMore] = useState(7);
 
@@ -39,4 +39,4 @@ function MediumActualite() {
     );
 }
 
-export default MediumActualite;
+export default SmallNews;

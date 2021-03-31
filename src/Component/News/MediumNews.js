@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import {
     Link
 } from "react-router-dom";
-import Menu from '../Component/Menu';
-import News from '../Component/MainNews';
-import setup from '../Img/setup.jpg'
+import Menu from '../Menu';
+import News from './MainNews';
+import setup from '../../Img/setup.jpg'
 
-function MediumActualite() {
+function MediumNews() {
 
     const articles = [];
     for (let i = 1; i < 4; i++) {
@@ -27,4 +27,4 @@ function MediumActualite() {
     );
 }
 
-export default MediumActualite;
+export default MediumNews;
