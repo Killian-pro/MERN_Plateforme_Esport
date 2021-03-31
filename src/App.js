@@ -4,7 +4,7 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-import Home from "./Pages/Home-habib"
+import Home from "./Pages/Home"
 import Stats from "./Pages/Stats"
 import Stream from "./Pages/Stream"
 import Actualite from "./Pages/Actualite"
