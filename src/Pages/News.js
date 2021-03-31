@@ -6,7 +6,7 @@ import footer from '../Img/footer.png'
 import MediumActualite from '../Component/News/MediumNews'
 import SmallActualite from '../Component/News/SmallNews'
     
-function Actualite() {
+function News() {
     
     return (
         <div>
@@ -28,4 +28,4 @@ function Actualite() {
     );
 }
 
-export default Actualite;
+export default News;

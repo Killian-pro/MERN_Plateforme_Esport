@@ -12,8 +12,6 @@ class MainNews extends Component {
             content_title: [],
             content_description: [],
         }
-
-
     }
     componentDidMount() {
         fetch('https://www.team-aaa.com/rss/full.xml')
@@ -27,6 +25,13 @@ class MainNews extends Component {
 
 
             })
+    }
+
+    // fonction pour récupérer le tableau dans les fils
+    passitems()
+    {
+        if (this.props.getNbItems!= null)
+        this.props.getNbItems(this.state.items)
     }
 
 
@@ -45,6 +50,7 @@ class MainNews extends Component {
                 {this.props.description !==false && <div style={{ color:'#827878',fontSize:'60%'}}>
                     {this.state.content_description[this.props.id]}
                 </div>}
+                {this.passitems()}
             </div>
         );
     }
