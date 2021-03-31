@@ -5,6 +5,7 @@ import * as rssParser from 'react-native-rss-parser';
 class MainNews extends Component {
     constructor(props) {
         super(props);
+        // initialisation des States
         this.state = {
             title: '',
             items: [],

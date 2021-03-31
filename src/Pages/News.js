@@ -12,7 +12,6 @@ function Actualite() {
         <div>
             {/* Appel du menu */}
             <Menu/>
-
             {/* Afficher le premier article */}
             <div style={{display: 'flex', flexdirection : 'row', justifyContent:'center',alignItems:'center',marginLeft:'10%',marginRight:'10%',marginTop:'5%',marginBottom:'5%'}}>
                 <img style={{width:'40%' ,borderRadius:10}} src={setup} alt="article" />
