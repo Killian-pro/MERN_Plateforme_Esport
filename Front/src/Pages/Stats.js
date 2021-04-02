@@ -10,25 +10,14 @@ import { IoIosSearch } from "react-icons/io";
 
 function Stats() {
     const [keyword, setKeyword] = useState('')
+    const [summoners,setSummoners]=useState('')
 
     function submit() {
-        
-        fetch("https://cors-anywhere.herokuapp.com/https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/OwniShip", {
-            "method": "POST",
-            "headers": {
-                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.114 Safari/537.36",
-                "Accept-Language": "fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7",
-                "Accept-Charset": "application/x-www-form-urlencoded; charset=UTF-8",
-                "Origin": "https://developer.riotgames.com",
-                "X-Riot-Token": "RGAPI-db3ff14d-312d-4f16-9cbc-9a922c4b0552",
-            },
-            // "body": JSON.stringify({
-            //     name: keyword,
-            // })
-        })
+        fetch('http://localhost:9000/testAPI?pseudo='+keyword)
             .then(response => response.json())
             .then(response => {
                 console.log('reponse',response)
+                setSummoners(response)
             })
     }
 
@@ -47,8 +36,12 @@ function Stats() {
             <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', marginTop: 20, marginLeft: '5%', marginRight: '5%' }}>
                 <div style={{ width: '80%', borderRadius: 1, borderColor: 'grey', borderWidth: 1, border: 'solid', marginRight: '5%', display: 'flex', flexDirection: 'row', flexWrap: 'wrap' }}>
 
-                    {keyword}
-
+                   id : {summoners.id} 
+                <br/>
+                   pseudo : {summoners.name}
+                   <br/>
+                   lvl : {summoners.summonerLevel}
+                   <br/>
                 </div>
                 <div style={{ width: '20%', textAlign: 'center', borderRadius: 1, borderColor: 'grey', borderWidth: 1, border: 'solid', marginLeft: '5%' }}>
                     <h1>Stats général</h1>
