@@ -9,6 +9,8 @@ import Stats from "./Pages/Stats"
 import Stream from "./Pages/Stream"
 import News from "./Pages/News"
 import Recruitment from "./Pages/Recruitment"
+import LeagueOfLegends from "./Pages/LeagueOfLegends"
+import Valorant from "./Pages/Valorant"
 
 
 export default function App() {
@@ -16,6 +18,12 @@ export default function App() {
     <Router>
       <div>
         <Switch>
+          <Route path="/statistiques/LeagueOfLegends">
+            <LeagueOfLegends />
+          </Route>
+          <Route path="/statistiques/Valorant">
+            <Valorant />
+          </Route>
           <Route path="/Stats">
             <Stats />
           </Route>
