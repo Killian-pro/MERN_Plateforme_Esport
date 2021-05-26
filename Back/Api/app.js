@@ -7,6 +7,7 @@ var cors=require('cors')
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 LeagueOfLegendsRouter = require('./routes/LeagueOfLegends') 
+CSGO = require('./routes/CSGO') 
 var app = express();
 
 // view engine setup
@@ -23,6 +24,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/LeagueOfLegends',LeagueOfLegendsRouter)
+app.use('/CSGO',CSGO)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -11,7 +11,7 @@ function Stats() {
             <Menu/>
             <div>
                 <Link style={{color: '#827878', textDecoration: 'none', fontWeight: 'bold', fontSize: '75%'}} to="/statistiques/LeagueOfLegends">LeagueOfLegends</Link>
-                <Link style={{color: '#827878', textDecoration: 'none', fontWeight: 'bold', fontSize: '75%'}} to="/statistiques/Valorant">Valorant</Link>
+                <Link style={{color: '#827878', textDecoration: 'none', fontWeight: 'bold', fontSize: '75%'}} to="/statistiques/CSGO">Valorant</Link>
             </div>
         </div>
     );

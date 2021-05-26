@@ -10,7 +10,7 @@ import Stream from "./Pages/Stream"
 import News from "./Pages/News"
 import Recruitment from "./Pages/Recruitment"
 import LeagueOfLegends from "./Pages/LeagueOfLegends"
-import Valorant from "./Pages/Valorant"
+import CSGO from "./Pages/CSGO"
 
 
 export default function App() {
@@ -21,8 +21,8 @@ export default function App() {
           <Route path="/statistiques/LeagueOfLegends">
             <LeagueOfLegends />
           </Route>
-          <Route path="/statistiques/Valorant">
-            <Valorant />
+          <Route path="/statistiques/CSGO">
+            <CSGO />
           </Route>
           <Route path="/Stats">
             <Stats />
