@@ -5,9 +5,14 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors=require('cors')
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var mongoose = require ('mongoose')
 LeagueOfLegendsRouter = require('./routes/LeagueOfLegends') 
 CSGO = require('./routes/CSGO') 
+
+
+
+
+
 var app = express();
 
 // view engine setup
@@ -17,12 +22,21 @@ app.set('view engine', 'jade');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(cors());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: false })); 
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//mongodb
+mongoose.connect("mongodb+srv://whatthegame:whatthegame@whatsthegame.wtmjj.mongodb.net/Esport")
+
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/Player', require("./routes/PlayerRouteur"));
+app.use('/Teams', require("./routes/TeamsRouteur"));
+app.use('/Platforms', require("./routes/PlatformsRouteur"));
+app.use('/Games', require("./routes/GamesRouteur"));
+app.use('/GamesPlayers', require("./routes/GamePlayersRouteur"));
+app.use('/GamesPlatforms', require("./routes/GamePlatformsRouteur"));
+app.use('/Player', require("./routes/PlayerRouteur"));
 app.use('/LeagueOfLegends',LeagueOfLegendsRouter)
 app.use('/CSGO',CSGO)
 
