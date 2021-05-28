@@ -23,7 +23,7 @@ function MediumNews() {
                 {articles}
             </div>
             {/* bar de séparation */}
-            <hr style={{ backgroundColor: 'grey', marginLeft: '10%', marginRight: '10%', height: "0.05px" }} />
+            <hr style={{ backgroundColor: 'grey', marginRight: '10%', height: "0.05px" }} />
         </div>
     );
 }

@@ -37,7 +37,7 @@ function SmallNews() {
                     {/* affichage des articles de 4 à more et passage des props id et description */}
                     <News id={i} description={false} getNbItems={(items)=>getNbItems(items)}  />
                 </div>
-                <hr style={{ backgroundColor: 'grey', marginLeft: '10%', marginRight: '10%', height: "0.05px", marginBottom: '1%' }} />
+                <hr style={{ backgroundColor: 'grey',  marginRight: '10%', height: "0.05px", marginBottom: '1%' }} />
             </>
         )
 

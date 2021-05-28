@@ -5,6 +5,7 @@ import setup from '../Img/setup.jpg'
 import footer from '../Img/footer.png'
 import MediumActualite from '../Component/News/MediumNews'
 import SmallActualite from '../Component/News/SmallNews'
+import Footer from '../Component/Footer';
     
 function News() {
     
@@ -23,7 +24,7 @@ function News() {
             {/* Afficher les articles 3 à Fin du tableau */}
             <SmallActualite/>
             {/* Footer (image pour le moment) */}
-            <img style={{ width: '100%'}} src={footer} alt="footer" />
+            <Footer/>
         </div>
     );
 }
