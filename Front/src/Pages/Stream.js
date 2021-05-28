@@ -5,6 +5,7 @@ import footer from '../Img/footer.png'
 import {
     Link
 } from "react-router-dom";
+import Footer from '../Component/Footer';
 
 
 function Stream() {
@@ -12,7 +13,7 @@ function Stream() {
         <div >
             <Menu />
             <RecupStream />
-            <img style={{ width: '100%' }} src={footer} alt="footer" />
+            <Footer />
         </div>
     );
 }

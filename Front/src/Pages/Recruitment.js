@@ -5,6 +5,7 @@ import Equipebox from '../Component/Equipebox'
 import {
     Link
 } from "react-router-dom";
+import Footer from '../Component/Footer';
 
 
 function Recruitment() {
@@ -58,7 +59,7 @@ function Recruitment() {
                     </div>
                 </div>
             </div>
-            <img style={{ width: '100%' }} src={footer} alt="footer" />
+            <Footer/>
         </div>
     );
 }

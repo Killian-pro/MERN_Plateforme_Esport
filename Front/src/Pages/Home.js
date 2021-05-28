@@ -4,6 +4,7 @@ import Menu from '../Component/Menu';
 import statimg from '../Img/statistics.png';
 import equipelogo from '../Img/deal.png';
 import twitchlogo from '../Img/twitch.png';
+import Footer from '../Component/Footer';
 function Home() {
 
   return (
@@ -72,6 +73,7 @@ function Home() {
       </div>
       
       </div>
+      <Footer/>
     </div>
   );
 
