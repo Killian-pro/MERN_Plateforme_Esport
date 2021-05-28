@@ -8,38 +8,47 @@ import {IoIosSearch} from "react-icons/io";
 function LeagueOfLegends() {
     const [keyword, setKeyword] = useState('')
     const [summoners, setSummoners] = useState('')
-    const [matchList, setMatchList] = useState('')
-    const [match, setMatch] = useState('')
-    let matches = []
+    const [profile, setProfile] = useState([])
+    const [matchList, setMatchList] = useState([])
+    const [match, setMatch] = useState([])
 
     function getSumByName() {
-        matches = []
-        fetch('http://localhost:9000/LeagueOfLegends/summoner?pseudo='+keyword)
+        fetch('http://localhost:9000/LeagueOfLegends/summoner?pseudo=' + keyword)
             .then(response => response.json())
             .then(response => {
                 setSummoners(response)
+                getProfile(response.id)
                 getMatchList(response.puuid)
             })
     }
 
+    function getProfile(id) {
+        fetch('http://localhost:9000/LeagueOfLegends/profile?id=' + id)
+            .then(response => response.json())
+            .then(response => {
+                setProfile(response)
+            })
+    }
+
     function getMatchList(puuid) {
-        fetch('http://localhost:9000/LeagueOfLegends/matchList?puuid='+puuid)
+        fetch('http://localhost:9000/LeagueOfLegends/matchList?puuid=' + puuid)
             .then(response => response.json())
             .then(response => {
                 setMatchList(response)
-                response.map((item, index) => {
+                response.map((item) => {
                     getMatch(item)
                 })
             })
     }
 
     function getMatch(id) {
-        fetch('http://localhost:9000/LeagueOfLegends/match?matchId='+id)
+        fetch('http://localhost:9000/LeagueOfLegends/match?matchId=' + id)
             .then(response => response.json())
             .then(response => {
-                matches.push(response)
-                setMatch(matches)
-                //console.log('Matchs : '+matches.length,matches)
+                let tmp = match
+                    tmp.push(response)
+                setMatch(tmp)
+                console.log(tmp)
             })
     }
 
@@ -59,15 +68,8 @@ function LeagueOfLegends() {
             </div>
             <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'center', marginTop: 20, marginLeft: '5%', marginRight: '5%'}}>
                 <div style={{
-                    width: '80%',
-                    borderRadius: 1,
-                    borderColor: 'grey',
-                    borderWidth: 1,
-                    border: 'solid',
-                    marginRight: '5%',
-                    display: 'flex',
-                    flexDirection: 'row',
-                    flexWrap: 'wrap'
+                    width: '80%', borderRadius: 1, borderColor: 'grey',
+                    borderWidth: 1, border: 'solid', marginRight: '5%', display: 'flex', flexDirection: 'row', flexWrap: 'wrap'
                 }}>
                     id : {summoners.id}
                     <br/>
@@ -85,7 +87,26 @@ function LeagueOfLegends() {
                 </div>
             </div>
             <div>
-                lol
+                {profile?.map((item) => (
+                    <div>
+                        {item.tier} {item.rank} {item.leaguePoints} LP {item.wins} victoires {item.losses} defaites {item.queueType === 'RANKED_SOLO_5x5' ? 'Classé solo' : 'Flex 5vs5'}
+                    </div>
+                ))}
+            </div>
+            <div>
+                {match?.map((item) => (
+                    <div>
+                        Type de match :&nbsp;
+                        {item.info.queueId}
+                        <div style={{display: 'flex', flexDirection: 'row'}}>
+                            {item.info.participants.map((item)=>(
+                                <div>
+                                    {item.summonerName}&nbsp;&nbsp;
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                ))}
             </div>
         </div>
     );

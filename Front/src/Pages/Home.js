@@ -17,7 +17,7 @@ function Home() {
             <h2>de statistiques, de recrutement et</h2>
             <h2>d'actualités autour de l'esport.</h2>
           </div>
-          <button type="button" class="btn">Créer son compte</button>
+          <button type="button" className="btn">Créer son compte</button>
         </div>
       </div>
       <div className="statbloc">
