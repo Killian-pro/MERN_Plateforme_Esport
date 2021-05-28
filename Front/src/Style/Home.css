@@ -3,11 +3,8 @@
     background-image: url(../Img/wallpaper_lol.jpg);
     width: 100%;
     height: 100%;
-    position: absolute;
-    left: 0;
-    right: 0;  
     background-repeat: no-repeat;
-    background-size: cover;
+   background-size: cover; 
   }
 .titre
   {
@@ -18,20 +15,22 @@
 .soustitre
   {
     font-size: 18px;
+    overflow: hidden;
+    white-space: pre-wrap; /* If set to "Normal", text-area returns are not displayed. If set to "pre-line" whitespace trimmed to single whitespace. If set to "pre-wrap" all whitespace preserved*/
+    word-break: break-word;
   }
-
-.btn{
+.btn
+{
       display: inline-block;
       box-shadow: none;
       appearance: none;
       border: 0;
       outline: 0;
       background-color: #440BD4;
-      height: 80px;
-      line-height: 42px;
+      line-height: 55px;
       padding: 0 45px;
       font-size: 40px;
-      border-radius: 20px;
+      border-radius: 10px;
       color: white;
       cursor: pointer;
       transition: all .5s;
@@ -39,7 +38,127 @@
       user-select: none;
       top: 500px;
       bottom: 200px;
-      /* position: relative; */
     }
-      
- 
+    .statbloc
+    {
+      padding: 0 20px 20px 20px; 
+      align-items: center;
+      display: flex;
+      flex-direction: row;
+    }
+    .soustitres
+    {
+      text-align: left;
+      padding: 0 30px 40px 20px; 
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      overflow: hidden;
+      white-space: pre-wrap; /* If set to "Normal", text-area returns are not displayed. If set to "pre-line" whitespace trimmed to single whitespace. If set to "pre-wrap" all whitespace preserved*/
+      word-break: break-word;
+      margin-right: 20%;
+      font-size: 110%;
+    }
+    .btnplus
+    {
+      border: 0px;
+      outline: 0;
+      background-color: #440BD4;
+      height: 55px;
+      line-height: 55px;
+      padding: 0 40px;
+      font-size: 25px;
+      border-radius: 10px;
+      color: white;
+      cursor: pointer;
+      margin-top: 5%;
+    }
+    .statlogo
+    {
+      display: flex;
+      flex: 1;
+    }
+    .statimg
+    {
+      height: 100%;
+      width: 60%;
+      margin-left: 20%;
+      margin-right: 10%;
+    }
+    .blocrecrutement
+    {
+      background-color: #F5F5F5;
+      padding: 0 20px 20px 20px; 
+      align-items: center;
+      display: flex; 
+      flex-direction: row;
+    }
+    .soustitress
+    {
+      text-align: left;
+      padding: 0 30px 40px 20px; 
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      overflow: hidden;
+      white-space: pre-wrap; /* If set to "Normal", text-area returns are not displayed. If set to "pre-line" whitespace trimmed to single whitespace. If set to "pre-wrap" all whitespace preserved*/
+      word-break: break-word;
+      margin-right: 5%;
+      font-size: 110%;
+      margin-left: 7%;
+    }
+    .equipelogo
+    {
+      margin-top:5% ;
+      height: 100%;
+      width: 52%;
+      margin-right: 20%;
+    }
+    .recrutlogo
+    {
+      display: flex;
+      flex: 1;
+    }
+    .end
+    {
+      text-align: right;
+    }
+    .start
+    {
+      text-align: left;
+    }
+    .title
+    {
+      color:#535557;
+      font-size: 40px;
+      font-weight:bolder;
+    }
+    .subtitle
+    {
+      color: #686C70;
+      font-size: 22px;
+      font-weight: 550;
+      margin-top: 3%;
+    }
+    .twitchlogo
+    {
+      margin-top:5% ;
+      height: 100%;
+      width: 52%;
+      margin-right: 40%;
+    }
+    .tlogo
+    {
+      margin-left: 10%;
+      display: flex;
+      flex: 1;
+    }
+    .twitchbloc{
+      padding: 0 20px 20px 20px; 
+      align-items: center;
+      display: flex;
+      flex-direction: row;
+    }
+    .debut{
+      margin-top: 3%;
+    }
