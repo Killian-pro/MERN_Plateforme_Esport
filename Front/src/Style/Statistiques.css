@@ -1,0 +1,16 @@
+.leagues{
+    border: 0.9px solid black !important;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.shadow,
+.hover-shadow:hover {
+    box-shadow:  0 4px 4px 1px rgba(175, 175, 175, .2),
+    0 0 2px 0 rgba(175, 175, 175, .2) !important;
+
+    border-radius: 5px !important;
+    cursor:pointer;
+
+}

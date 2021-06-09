@@ -122,7 +122,7 @@ function Home() {
           </div>
         </div>
         <div style={{ textAlign: 'center', padding: '2%', fontSize: '130%' }}>
-          <Link style={{ color: '#827878', textDecoration: 'none', fontWeight: 'bold', fontSize: '75%', alignItems: 'center', color: '#440BD4' }} to="/Actualites">Voir plus d'articles dans notre page dédiée</Link>
+          <Link style={{ textDecoration: 'none', fontWeight: 'bold', fontSize: '75%', alignItems: 'center', color: '#440BD4' }} to="/Actualites">Voir plus d'articles dans notre page dédiée</Link>
         </div>
       </div>
       <Avis />
