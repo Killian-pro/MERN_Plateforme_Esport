@@ -11,6 +11,8 @@ import News from "./Pages/News"
 import Recruitment from "./Pages/Recruitment"
 import LeagueOfLegends from "./Pages/LeagueOfLegends"
 import CSGO from "./Pages/CSGO"
+import Login from "./Pages/Login"
+import Register from "./Pages/Register"
 
 
 export default function App() {
@@ -18,6 +20,12 @@ export default function App() {
     <Router>
       <div>
         <Switch>
+          <Route path="/Connexion">
+            <Login />
+          </Route>
+          <Route path="/Inscription">
+            <Register />
+          </Route>
           <Route path="/statistiques/LeagueOfLegends">
             <LeagueOfLegends />
           </Route>
@@ -37,12 +45,6 @@ export default function App() {
             <News />
           </Route>
           <Route path="/">
-            <Home />
-          </Route>
-          <Route path="/Connexion">
-            <Home />
-          </Route>
-          <Route path="/Inscription">
             <Home />
           </Route>
         </Switch>
