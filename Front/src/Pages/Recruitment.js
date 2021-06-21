@@ -6,6 +6,7 @@ import {
     Link
 } from "react-router-dom";
 import Footer from '../Component/Footer';
+import PlayerCard from '../Component/PlayerCard';
 
 
 function Recruitment() {
@@ -21,8 +22,9 @@ function Recruitment() {
     return (
         <div >
             <Menu />
-            <div style={{ display: 'flex', flexDirection: 'row',marginTop:2 }}>
-                <div style={{ flex: 1, minWidth: '20%', backgroundColor: '#e3e5e5'}}>
+            <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', margin: 15, justifyContent: 'center' }}>
+                <PlayerCard />
+                {/* <div style={{ flex: 1, minWidth: '20%', backgroundColor: '#e3e5e5'}}>
                     <div style={{borderColor: '#440BD4', borderWidth: 2, borderStyle: 'solid', borderRadius: 5,margin:10,height:'98%', backgroundColor: 'white'}}>
                         <input
                             style={{ width: '90%', fontWeight: 'bold', borderRadius: 5, margin: 10,height:30 }}
@@ -49,17 +51,17 @@ function Recruitment() {
                             </select>
                         </div>
                     </div>
-                </div>
-                <div>
+                </div> */}
+                {/* <div>
                     <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', flex: 2, backgroundColor: '#e3e5e5' }}>
                         {fulldisplay()}
                     </div>
                     <div style={{ justifyContent: 'center', alignItems: 'center', display: 'flex', paddingBottom: '5%', paddingTop: '5%', backgroundColor: '#e3e5e5' }}>
                         <button onClick={() => { }} style={{ borderColor: '#440BD4', backgroundColor: '#440BD4', borderWidth: 2, borderStyle: 'solid', borderRadius: 15, padding: 10, alignContent: 'center', color: 'white', fontWeight: 'bold', textAlign: 'center', width: 100 }}>Voir plus</button>
                     </div>
-                </div>
+                </div> */}
             </div>
-            <Footer/>
+            <Footer />
         </div>
     );
 }
