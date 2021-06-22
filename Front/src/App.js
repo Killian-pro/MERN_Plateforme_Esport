@@ -13,6 +13,7 @@ import LeagueOfLegends from "./Pages/LeagueOfLegends"
 import CSGO from "./Pages/CSGO"
 import Login from "./Pages/Login"
 import Register from "./Pages/Register"
+import PlayerInfo from "./Pages/PlayerInfo";
 
 
 export default function App() {
@@ -37,6 +38,9 @@ export default function App() {
           </Route>
           <Route path="/Recrutement">
             <Recruitment />
+          </Route>
+          <Route path="/PlayerRecrutement/:name/" >
+            <PlayerInfo />
           </Route>
           <Route path="/Streams">
             <Stream />
