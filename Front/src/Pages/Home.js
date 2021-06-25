@@ -41,7 +41,9 @@ function Home() {
             </div>
           </div>
           <div >
+            <Link to="/inscription">
             <button type="button" className="btn">Créer son compte</button>
+            </Link>
           </div>
         </div>
       </div>
