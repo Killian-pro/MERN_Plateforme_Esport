@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Menu from '../Component/Menu';
 import MainNews from '../Component/News/MainNews';
 import setup from '../Img/setup.jpg'
-import footer from '../Img/footer.png'
 import MediumActualite from '../Component/News/MediumNews'
 import SmallActualite from '../Component/News/SmallNews'
 import Footer from '../Component/Footer';

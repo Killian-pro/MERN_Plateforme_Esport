@@ -1,10 +1,6 @@
 import React, { useState } from 'react'
 import Menu from '../Component/Menu';
-import footer from '../Img/footer.png'
 import Equipebox from '../Component/Equipebox'
-import {
-    Link
-} from "react-router-dom";
 import Footer from '../Component/Footer';
 import PlayerCard from '../Component/PlayerCard';
 

@@ -1,10 +1,4 @@
-import React, { useState } from 'react'
-import {
-    Link
-} from "react-router-dom";
-import Avatar1 from '../Img/Avatar1.png'
-import Avatar2 from '../Img/Avatar2.png'
-import Avatar3 from '../Img/Avatar3.png'
+import React from 'react'
 
 function AvisSimple(props) {
     return (

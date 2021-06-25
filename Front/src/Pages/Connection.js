@@ -1,12 +1,5 @@
 import React from 'react'
-import Menu from '../Component/Menu';
-import RecupStream from '../Component/Stream';
-import footer from '../Img/footer.png'
-import {
-    Link
-} from "react-router-dom";
 import axios from 'axios';
-
 
 function Connexion() {
     function sendvalue()

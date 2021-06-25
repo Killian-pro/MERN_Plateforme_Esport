@@ -1,9 +1,7 @@
 import React from "react";
-import {
-    Link
-} from "react-router-dom";
 import Menu from '../Component/Menu';
 import GameLinkSimple from '../Component/GameLinkSimple'
+import '../Style/Statistiques.css';
 
 function Stats() {
     return (

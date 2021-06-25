@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
 import News from './MainNews';
 import setup from '../../Img/setup.jpg'
 

@@ -12,7 +12,6 @@ import {
   Link
 } from "react-router-dom";
 import Avis from '../Pages/Avis';
-import AvisSimple from '../Component/AvisSimple';
 function Home() {
   const divref = useRef()
   const divwidth = useRef()
