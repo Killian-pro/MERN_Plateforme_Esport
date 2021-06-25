@@ -1,6 +1,4 @@
 import React from 'react'
-import Menu from './Menu';
-import footer from '../Img/footer.png'
 import alcyone from '../Img/Alcyone.png'
 import {
     Link

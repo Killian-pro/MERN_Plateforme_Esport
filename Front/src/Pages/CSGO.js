@@ -1,5 +1,4 @@
 import React from "react";
-import ScrapSteam from "../Component/Scraper";
 import Menu from '../Component/Menu';
 import {useState} from "react";
 import {IoIosSearch} from "react-icons/io";

@@ -1,37 +1,10 @@
-import React, { Component, useState } from 'react';
+import React from 'react';
 import '../Style/News.css';
-import Modal from 'react-modal';
-import Connexion from '../Pages/Connection'
-import Register from '../Pages/Register'
 import {
     Link
 } from "react-router-dom";
 
-const customStyles = {
-    content : {
-      top                   : '50%',
-      left                  : '50%',
-      right                 : 'auto',
-      bottom                : 'auto',
-      transform             : 'translate(-50%, -50%)',
-    }
-  };
-
 function Menu() {
-    const [loginIsOpen, setLoginOpen] = useState(false);
-    const [registerIsOpen, setRegisterOpen] = useState(false);
-    function openLogin() {
-        setLoginOpen(true);
-    }
-    function closeLogin() {
-        setLoginOpen(false);
-    }
-    function openRegister() {
-        setRegisterOpen(true);
-    }
-    function closeRegister() {
-        setRegisterOpen(false);
-    }
     return (
         <div style={{ display: 'flex', flexdirection: 'row', justifyContent: 'center', alignItems: 'center', boxShadow: "1px 2px 1px #9E9E9E" }}>
             <div style={{ marginRight: '7%', fontWeight: 'bold', fontSize: '120%' }}>What's the game</div>

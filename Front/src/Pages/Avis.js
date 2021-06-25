@@ -1,7 +1,4 @@
-import React, { useState } from 'react'
-import {
-    Link
-} from "react-router-dom";
+import React from 'react'
 import AvisSimple from '../Component/AvisSimple';
 import Avatar1 from '../Img/Avatar1.png'
 import Avatar2 from '../Img/Avatar2.png'

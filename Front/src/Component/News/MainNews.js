@@ -41,7 +41,7 @@ class MainNews extends Component {
                 {/* tag en dur pour le moment*/}
                 <div style={{color:'#440BD4',fontSize:'60%',marginBottom:'0.5%',fontWeight:'bold'}}>#TEAM</div>
                 {/* titre */}
-                <div style={{marginBottom:'1%',fontWeight:'bold',fontSize:'120%',color:'#346060',fontSize:'90%' }}>
+                <div style={{marginBottom:'1%',fontWeight:'bold', color:'#346060',fontSize:'90%' }}>
                     {this.state.content_title[this.props.id]}
                 </div>
                 {/* jour en dur pour le moment */}

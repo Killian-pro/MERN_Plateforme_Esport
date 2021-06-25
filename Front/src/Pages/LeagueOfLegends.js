@@ -1,7 +1,7 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import ScrapSteam from "../Component/Scraper";
 import Menu from '../Component/Menu';
-import {useState} from "react";
+import queues from '../queueId.json';
 import {IoIosSearch} from "react-icons/io";
 import IRON from '../Img/ranked-emblems/Emblem_IRON.png'
 import BRONZE from '../Img/ranked-emblems/Emblem_BRONZE.png'
@@ -14,11 +14,12 @@ import GRANDMASTER from '../Img/ranked-emblems/Emblem_GRANDMASTER.png'
 import CHALLENGER from '../Img/ranked-emblems/Emblem_CHALLENGER.png'
 
 function LeagueOfLegends() {
+    const [isLoading, setIsLoading] = useState(false)
+    const [isMatchLoading, setIsMatchLoading] = useState(false)
     const [keyword, setKeyword] = useState('')
     const [summoners, setSummoners] = useState('')
     const [profile, setProfile] = useState([])
-    const [matchList, setMatchList] = useState([])
-    const [match, setMatch] = useState([])
+    const [matches, setMatches] = useState([])
     const emblems = {
         IRON,
         BRONZE,
@@ -30,12 +31,56 @@ function LeagueOfLegends() {
         GRANDMASTER,
         CHALLENGER
     }
+    const tab = []
+
+    function handleKeyPress(event) {
+        if (event.key === 'Enter') {
+            getSumByName()
+        }
+    }
+
+    useEffect(() => {
+        if (matches.length == 10 && isMatchLoading == false) {
+            let tmp = [...matches]
+            tmp = tmp.sort((a, b) => (a?.metadata?.matchId < b?.metadata?.matchId ? 1 : -1))
+            //console.log(tmp);
+            setMatches(tmp)
+
+            //const result = tmp.filter(infoMatch => infoMatch.info.participants.summonerName == summoners.name);
+
+            //getInfoPlayerMatch(tmp)
+
+            //console.log(result);
+
+            setIsMatchLoading(true)
+        }
+    }, [matches])
+
+    function getInfoPlayerMatch(tmp) {
+        tmp.map((item) => {
+            const result = item.info.participants.filter(infoMatch => infoMatch.summonerName == summoners.name);
+
+            tab.push(
+                <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
+                    <div style={{display: 'flex', flexDirection: 'column'}}>
+                        <img className="rounded-full" src={'https://ddragon.leagueoflegends.com/cdn/11.13.1/img/champion/' + result[0].championName + '.png'} style={{width: '50px'}}/>
+                        {result[0].championName}
+                    </div>
+                    <div style={{margin: '100px'}}>
+                        {result[0].kills + "/" + result[0].deaths + "/" + result[0].assists}
+                    </div>
+                    {result[0].win === true ? 'Victoire' : 'Défaite'}
+                </div>
+            )
+        })
+    }
 
     function getSumByName() {
         fetch('http://localhost:9000/LeagueOfLegends/summoner?pseudo=' + keyword)
             .then(response => response.json())
             .then(response => {
                 setSummoners(response)
+                setIsLoading(true)
                 getProfile(response.id)
                 getMatchList(response.puuid)
             })
@@ -45,7 +90,6 @@ function LeagueOfLegends() {
         fetch('http://localhost:9000/LeagueOfLegends/profile?id=' + id)
             .then(response => response.json())
             .then(response => {
-                console.log(response);
                 setProfile(response)
             })
     }
@@ -54,7 +98,6 @@ function LeagueOfLegends() {
         fetch('http://localhost:9000/LeagueOfLegends/matchList?puuid=' + puuid)
             .then(response => response.json())
             .then(response => {
-                setMatchList(response)
                 response.map((item) => {
                     getMatch(item)
                 })
@@ -65,10 +108,7 @@ function LeagueOfLegends() {
         fetch('http://localhost:9000/LeagueOfLegends/match?matchId=' + id)
             .then(response => response.json())
             .then(response => {
-                let tmp = match
-                    tmp.push(response)
-                setMatch(tmp)
-                console.log(tmp)
+                setMatches(pretmp => ([...pretmp, response]))
             })
     }
 
@@ -77,66 +117,124 @@ function LeagueOfLegends() {
     }
 
     function getWinRate(wins, losses) {
-        return Math.round(wins/(wins + losses)*100)
+        return Math.round(wins / (wins + losses) * 100)
+    }
+
+    function getQueue(id) {
+        var filterQueue = queues.filter(queues => queues.queueId === id)
+
+        return filterQueue[0].description;
     }
 
     return (
         <div style={{marginBottom: '2%'}}>
             <Menu/>
-            <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'center', marginTop: 20}}>
-                <button onClick={() => {
-                    getSumByName()
-                }}><IoIosSearch size='50'/></button>
-                <input
-                    style={{width: '30%', fontWeight: 'bold', borderRadius: 5}}
-                    value={keyword}
-                    placeholder={"Entre ton pseudo"}
-                    onChange={(e) => setKeyword(e.target.value)}
-                />
-            </div>
-            <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'center', marginTop: 20, marginLeft: '5%', marginRight: '5%'}}>
-                <div style={{width: '80%', borderRadius: 1, borderColor: 'grey', display: 'flex', flexDirection: 'row', flexWrap: 'wrap'}}>
-                    <img src={'https://ddragon.leagueoflegends.com/cdn/11.12.1/img/profileicon/'+summoners.profileIconId+'.png'} alt="profileIcon" style={{width: '10%'}}/>
-                    {summoners.name}
-                    <br/>
-                    Level {summoners.summonerLevel}
-                    <br/>
+            <div style={{backgroundColor: '#E7E8EE'}}>
+                <div className="inputs">
+                    <input
+                        value={keyword}
+                        placeholder={"Nom d'invocateur"}
+                        onChange={(event) => setKeyword(event.target.value)}
+                        onKeyUp={(event) => handleKeyPress(event)}
+                    />
+                    <span className="iconbox">
+                        <button onClick={() => {
+                            getSumByName()
+                        }}><IoIosSearch/></button>
+                    </span>
                 </div>
-                {/*<div style={{width: '20%', textAlign: 'center', borderRadius: 1, borderColor: 'grey', borderWidth: 1, border: 'solid', marginLeft: '5%'}}>*/}
-                {/*    <h1>Stats général</h1>*/}
-                {/*    <div>*/}
-                {/*        <h3>Les 10 premiers joueurs LOL</h3>*/}
-                {/*        <ScrapSteam/>*/}
-                {/*    </div>*/}
-                {/*</div>*/}
-            </div>
-            <div>
-                {profile?.map((item) => (
-                    <div className="leagues">
-                        <img src={getEmblem(item.tier)} alt="Emblem" style={{width: '7%'}}/>
-                        <div>
-                            <div>{item.queueType === 'RANKED_SOLO_5x5' ? 'Classé solo' : 'Flex 5vs5 Ranked'}</div>
-                            <div>{item.tier} {item.rank}</div>
-                            <div>{item.leaguePoints} LP / {item.wins}W {item.losses}L</div>
-                            <div>Win Rate {getWinRate(item.wins, item.losses)}%</div>
-                        </div>
+                {isLoading && <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'center', marginTop: 20, marginLeft: '5%', marginRight: '5%'}}>
+                    <div style={{width: '80%', backgroundColor: 'blue', borderColor: 'blue', display: 'flex', flexDirection: 'row'}}>
+                        <img src={'https://ddragon.leagueoflegends.com/cdn/11.12.1/img/profileicon/' + summoners.profileIconId + '.png'} alt="profileIcon" style={{width: '10%'}}/>
+                        {summoners.name}
+                        <br/>
+                        Level {summoners.summonerLevel}
+                        <br/>
                     </div>
-                ))}
-            </div>
-            <div>
-                {match?.map((item) => (
-                    <div>
-                        Type de match :&nbsp;
-                        {item.info.queueId === 420 ? 'Classé solo' : 'Flex 5vs5'}
-                        <div style={{display: 'flex', flexDirection: 'row'}}>
-                            {item.info.participants.map((item)=>(
-                                <div>
-                                    {item.summonerName}&nbsp;&nbsp;
+                </div>}
+
+                <div style={{display: 'flex', flexDirection: 'row', justifyContent: "center", margin: '50px'}}>
+                    <div style={{flexDirection: 'column', marginRight: '100px'}}>
+                        {profile?.map((league) => (
+                            <div className="leagues">
+                                <img src={getEmblem(league.tier)} alt="Emblem" style={{width: '125px'}}/>
+                                {/*<img src={require(`../Img/ranked-emblems/Emblem_${league.tier}.png`)} alt="Emblem" style={{width: '125px'}}/>*/}
+                                <div style={{display: 'flex', flexDirection: 'column', marginRight: '50px', marginLeft: '50px'}}>
+                                    <span className="RankType">{league.queueType === 'RANKED_SOLO_5x5' ? 'Classé solo' : 'Flex 5vs5 Ranked'}</span>
+                                    <span className="TierRank">{league.tier} {league.rank}</span>
+                                    <div>
+                                        <span className="LeaguePoints">{league.leaguePoints} LP</span>
+                                        <span className="WinLose"> / {league.wins}W {league.losses}L</span>
+                                    </div>
+                                    <span className="WinRate">Win Rate {getWinRate(league.wins, league.losses)}%</span>
                                 </div>
-                            ))}
-                        </div>
+                            </div>
+                        ))}
+                        {isLoading && <div style={{textAlign: 'center', borderRadius: 1, borderColor: 'grey', border: 'solid'}}>
+                            <h1>Stats général</h1>
+                            <div>
+                                <h3>Les 10 premiers joueurs LOL</h3>
+                                <ScrapSteam/>
+                            </div>
+                        </div>}
                     </div>
-                ))}
+
+                    {isMatchLoading && <div>
+                        {
+                            getInfoPlayerMatch(matches)
+                        }
+                        {matches?.map((match, index) => (
+                            /* <div>
+                                 {match.info.participants.map((item) => (
+                                     <div className={"matchList " + ((item.summonerName === summoners.name) && item.win === true ? 'bg-blue' : (item.summonerName === summoners.name) && item.win === false ? 'bg-red' : '')}>
+                                         <div style={{display: 'flex', flexDirection: 'row'}}>
+                                             {getQueue(match.info.queueId) == "5v5 Ranked Solo games" ? "Match classé solo" : getQueue(match.info.queueId) == "5v5 Ranked Flex games" ? "Ranked 5v5 Flex" : getQueue(match.info.queueId)}
+
+                                         </div>
+                                         <div style={{display: 'flex', flexDirection: 'column'}}>
+                                             {match.info.participants.map((item) => (
+                                                 <div style={{display: 'flex', flexDirection: 'row'}} className={(item.summonerName === summoners.name) && item.win === true ? 'bg-blue' : (item.summonerName === summoners.name) && item.win === false ? 'bg-red' : ''}>
+                                                     <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
+                                                         <img src={'https://ddragon.leagueoflegends.com/cdn/11.13.1/img/champion/' + item.championName + '.png'} style={{width: '30px', marginRight: '10px'}}/>
+                                                         <span style={{fontSize: 15}}>{item.summonerName}</span>
+                                                     </div>
+                                                 </div>
+                                             ))}
+                                         </div>
+                                     </div>
+                                 ))}
+                             </div>*/
+                            <div className="matchList">
+                                <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
+                                    {getQueue(match.info.queueId) == "5v5 Ranked Solo games" ? "Match classé solo" : getQueue(match.info.queueId) == "5v5 Ranked Flex games" ? "Ranked 5v5 Flex" : getQueue(match.info.queueId)}
+                                    {tab[index]}
+                                    {/*{match.info.participants.map((item) => (*/}
+                                    {/*    <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>*/}
+                                    {/*        <div style={{display: 'flex', flexDirection: 'column'}}>*/}
+                                    {/*            {item.summonerName === summoners.name && <img className="rounded-full" src={'https://ddragon.leagueoflegends.com/cdn/11.13.1/img/champion/' + item.championName + '.png'} style={{width: '50px'}}/>}*/}
+                                    {/*            {item.summonerName === summoners.name && item.championName}*/}
+                                    {/*        </div>*/}
+                                    {/*        <div style={{padding: '10px'}}>*/}
+                                    {/*            {item.summonerName === summoners.name && item.kills + "/" + item.deaths + "/" + item.assists}*/}
+                                    {/*        </div>*/}
+                                    {/*        /!*{(item.summonerName === summoners.name) && item.win === true ? 'Victoire' : (item.summonerName === summoners.name) && item.win === false ? 'Défaite' : ''}*!/*/}
+                                    {/*    </div>*/}
+                                    {/*))}*/}
+                                </div>
+                                <div style={{display: 'flex', flexDirection: 'column'}}>
+                                    {match.info.participants.map((item) => (
+                                        <div style={{display: 'flex', flexDirection: 'row'}} className={(item.summonerName === summoners.name) && item.win === true ? 'bg-blue' : (item.summonerName === summoners.name) && item.win === false ? 'bg-red' : ''}>
+                                            <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
+                                                <img src={'https://ddragon.leagueoflegends.com/cdn/11.13.1/img/champion/' + item.championName + '.png'} style={{width: '30px', marginRight: '10px'}}/>
+                                                <span style={{fontSize: 15}}>{item.summonerName}</span>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        ))}
+                    </div>}
+                </div>
             </div>
         </div>
     );
