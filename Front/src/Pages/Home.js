@@ -1,4 +1,4 @@
-import React, { useEffect,useState ,useRef} from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import '../Style/Home.css';
 import Menu from '../Component/Menu';
 import statimg from '../Img/statistics.png';
@@ -16,13 +16,16 @@ function Home() {
   const divref = useRef()
   const divwidth = useRef()
 
-  const [height,setHeigt]= useState('')
-  const [width,setWidth]= useState('')
+  const [height, setHeigt] = useState('')
+  const [heightCard, setHeightCard] = useState('')
+  const [width, setWidth] = useState('')
   // var widthres = (((divwidth.current.clientWidth)/2))
   useEffect(() => {
-    console.log(divwidth.current.clientWidth)
-    setWidth((divwidth.current.clientWidth)/2)
+
+    setWidth((divwidth.current.clientWidth) / 2)
+    setHeightCard(divwidth.current.clientHeight)
     setHeigt(divref.current.clientHeight)
+
 
   }, []);
   return (
@@ -41,26 +44,26 @@ function Home() {
           </div>
           <div >
             <Link to="/inscription">
-            <button type="button" className="btn">Créer son compte</button>
+              <button type="button" className="btn">Créer son compte</button>
             </Link>
           </div>
         </div>
       </div>
-      <div style={{ position: 'absolute', bottom: '0%', display: 'flex', marginLeft: '15%', left: 0, right: 0, marginRight: '20%',top:height }}>
+      <div style={{ position: 'absolute', bottom: '0%', display: 'flex', left: 0, right: 0, top: height }}>
         <div ref={divwidth} style={{ alignContent: 'center', boxShadow: "0px 3px 3px 0px #9E9E9E", backgroundColor: 'white', borderRadius: 25, height: 200, width: 400, marginLeft: '5%' }}>
-          <img style={{ width: "40%", marginTop: -10, marginLeft: width/1.7 }} src={statimg} alt="stats" />
+          <img style={{ width: "40%", marginTop: -10, marginLeft: width / 1.7 }} src={statimg} alt="stats" />
           <div style={{ textAlign: 'center', color: '#686C70', fontSize: 18 }}><b>Consulter</b> les statistiques des différents jeux</div>
-          <img style={{ width: "10%", paddingTop: 13, marginLeft: width,marginRight: width}} src={chevron} alt="chevron" />
+          <img style={{ width: "10%", marginTop: heightCard / 27, marginLeft: width, marginRight: width }} src={chevron} alt="chevron" />
         </div>
         <div style={{ alignContent: 'center', boxShadow: "0px 3px 3px 0px #9E9E9E", backgroundColor: 'white', borderRadius: 25, height: 200, width: 400, marginLeft: '5%' }}>
-          <img style={{ width: "40%", marginLeft: '120px', marginTop: -10,marginLeft:(width)/1.7 }} src={equipelogo} alt="equipe" />
+          <img style={{ width: "40%", marginLeft: '120px', marginTop: -10, marginLeft: (width) / 1.7 }} src={equipelogo} alt="equipe" />
           <div style={{ textAlign: 'center', color: '#686C70', fontSize: 18 }}><b>Rechercher</b> des joueurs et des équipes</div>
-          <img style={{ width: "10%", paddingTop: 13, marginLeft: width,marginRight: width }} src={chevron} alt="chevron" />
+          <img style={{ width: "10%", marginTop: heightCard /17, marginLeft: width, marginRight: width }} src={chevron} alt="chevron" />
         </div>
         <div style={{ alignContent: 'center', boxShadow: "0px 3px 3px 0px #9E9E9E", backgroundColor: 'white', borderRadius: 25, height: 200, width: 400, marginLeft: '5%' }}>
-          <img style={{ width: "50%", paddingTop: 20, marginLeft: 60, marginBottom: 7 , marginLeft:(width)/2}} src={twitchlogo} alt="twitch" />
+          <img style={{ width: "50%", paddingTop: 20, marginLeft: 60, marginBottom: 7, marginLeft: (width) / 2 }} src={twitchlogo} alt="twitch" />
           <div style={{ textAlign: 'center', color: '#686C70', fontSize: 18 }}><b>Regarder</b> vos streamers favoris sur Twitch</div>
-          <img style={{ width: "10%", paddingTop: 13, marginRight: width,marginLeft:width}} src={chevron} alt="chevron" />
+          <img style={{ width: "10%", marginTop: heightCard / 7, marginRight: width, marginLeft: width }} src={chevron} alt="chevron" />
 
         </div>
       </div>
@@ -79,7 +82,7 @@ function Home() {
           </div>
           <div className="end">
             <Link to="/Stats">
-            <button type="button" class="btnplus">Voir plus</button>
+              <button type="button" class="btnplus">Voir plus</button>
             </Link>
           </div>
         </div>
@@ -94,7 +97,7 @@ function Home() {
             id egestas sapien velit eu lectus. Praesent ac sem lectus. Cras vel mollis lacus.</div>
           <div className="start">
             <Link to="/Recrutement">
-            <button type="button" class="btnplus">Voir plus</button>
+              <button type="button" class="btnplus">Voir plus</button>
             </Link>
           </div>
         </div>
@@ -114,7 +117,7 @@ function Home() {
           </div>
           <div className="end">
             <Link to="/Streams">
-            <button type="button" class="btnplus">Voir plus</button>
+              <button type="button" class="btnplus">Voir plus</button>
             </Link>
           </div>
         </div>

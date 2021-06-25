@@ -3,9 +3,9 @@
     background-image: url(../Img/wallpaper_lol.jpg);
     background-size: cover;
     background-repeat: no-repeat;
-    max-height: 1903px;
-    min-height: 769.625px;
-    height: 800px;
+    /* max-height: 1903px;
+    min-height: 769.625px; */
+    height: 700px;
     width: auto;
   }
 .titre
@@ -38,7 +38,7 @@
       transition-timing-function: cubic-bezier(.2, 3, .4, 1);
       user-select: none;
       margin-left: 15%;
-      margin-top:30%;
+      margin-top:25%;
       
     }
     .statbloc
