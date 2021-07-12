@@ -122,8 +122,11 @@ function LeagueOfLegends() {
 
     function getQueue(id) {
         var filterQueue = queues.filter(queues => queues.queueId === id)
-
-        return filterQueue[0].description;
+        if (!filterQueue || filterQueue.length < 1) {
+            return "New Game Mode"
+        } else {
+            return filterQueue[0].description;
+        }
     }
 
     return (
