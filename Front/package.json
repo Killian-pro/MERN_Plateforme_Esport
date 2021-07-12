@@ -21,7 +21,10 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start-server": "(cd ../Back && yarn start) && react-scripts start",
+    "start-watch": "react-scripts start",
+    "start": "concurrently  \"yarn start-watch\" \"yarn start-server\"",
+    "start-web": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
