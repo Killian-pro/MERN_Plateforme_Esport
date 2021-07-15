@@ -16,7 +16,6 @@
     justify-content: center;
     margin-bottom: 5px;
     padding: 20px;
-    background-color: white;
 }
 
 .shadow,
@@ -76,11 +75,11 @@
 }
 
 .bg-blue{
-    background-color: #6ABEF5;
+    background-color: #92D2EA;
 }
 
 .bg-red{
-    background-color: #F75F5F;
+    background-color: #F18D8D;
 }
 
 .rounded-full {

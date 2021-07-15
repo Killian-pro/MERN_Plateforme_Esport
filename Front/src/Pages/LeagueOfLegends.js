@@ -43,15 +43,8 @@ function LeagueOfLegends() {
         if (matches.length == 10 && isMatchLoading == false) {
             let tmp = [...matches]
             tmp = tmp.sort((a, b) => (a?.metadata?.matchId < b?.metadata?.matchId ? 1 : -1))
-            //console.log(tmp);
             setMatches(tmp)
-
-            //const result = tmp.filter(infoMatch => infoMatch.info.participants.summonerName == summoners.name);
-
             //getInfoPlayerMatch(tmp)
-
-            //console.log(result);
-
             setIsMatchLoading(true)
         }
     }, [matches])
@@ -66,13 +59,24 @@ function LeagueOfLegends() {
                         <img className="rounded-full" src={'https://ddragon.leagueoflegends.com/cdn/11.13.1/img/champion/' + result[0].championName + '.png'} style={{width: '50px'}}/>
                         {result[0].championName}
                     </div>
-                    <div style={{margin: '100px'}}>
-                        {result[0].kills + "/" + result[0].deaths + "/" + result[0].assists}
+                    {getTimePlayed(result[0].timePlayed)}
+                    <div style={{margin: '50px', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+                        <div>{result[0].kills + " / " + result[0].deaths + " / " + result[0].assists}</div>
+                        <div>{getKDA(result[0].kills, result[0].deaths, result[0].assists)}</div>
                     </div>
-                    {result[0].win === true ? 'Victoire' : 'Défaite'}
+                    <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+                        <div>Niveau {result[0].champLevel}</div>
+                        <div>{result[0].neutralMinionsKilled + result[0].totalMinionsKilled} CS</div>
+                    </div>
                 </div>
             )
         })
+    }
+
+    function victory(match) {
+        const result = match.info.participants.filter(infoMatch => infoMatch.summonerName == summoners.name);
+
+        return result[0].win;
     }
 
     function getSumByName() {
@@ -120,6 +124,13 @@ function LeagueOfLegends() {
         return Math.round(wins / (wins + losses) * 100)
     }
 
+    function getTimePlayed(timePlayed) {
+        var minutes = Math.floor(timePlayed / 60);
+        var secondes = timePlayed - minutes * 60;
+
+        return minutes + ":" + secondes;
+    }
+
     function getQueue(id) {
         var filterQueue = queues.filter(queues => queues.queueId === id)
         if (!filterQueue || filterQueue.length < 1) {
@@ -127,6 +138,12 @@ function LeagueOfLegends() {
         } else {
             return filterQueue[0].description;
         }
+    }
+
+    function getKDA(kills, deaths, assists) {
+        let result = (kills + assists) / deaths;
+
+        return result.toFixed(2) + ":1 KDA";
     }
 
     return (
@@ -183,56 +200,24 @@ function LeagueOfLegends() {
                     </div>
 
                     {isMatchLoading && <div>
-                        {
-                            getInfoPlayerMatch(matches)
-                        }
+                        {getInfoPlayerMatch(matches)}
                         {matches?.map((match, index) => (
-                            /* <div>
-                                 {match.info.participants.map((item) => (
-                                     <div className={"matchList " + ((item.summonerName === summoners.name) && item.win === true ? 'bg-blue' : (item.summonerName === summoners.name) && item.win === false ? 'bg-red' : '')}>
-                                         <div style={{display: 'flex', flexDirection: 'row'}}>
-                                             {getQueue(match.info.queueId) == "5v5 Ranked Solo games" ? "Match classé solo" : getQueue(match.info.queueId) == "5v5 Ranked Flex games" ? "Ranked 5v5 Flex" : getQueue(match.info.queueId)}
-
-                                         </div>
-                                         <div style={{display: 'flex', flexDirection: 'column'}}>
-                                             {match.info.participants.map((item) => (
-                                                 <div style={{display: 'flex', flexDirection: 'row'}} className={(item.summonerName === summoners.name) && item.win === true ? 'bg-blue' : (item.summonerName === summoners.name) && item.win === false ? 'bg-red' : ''}>
-                                                     <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
-                                                         <img src={'https://ddragon.leagueoflegends.com/cdn/11.13.1/img/champion/' + item.championName + '.png'} style={{width: '30px', marginRight: '10px'}}/>
-                                                         <span style={{fontSize: 15}}>{item.summonerName}</span>
-                                                     </div>
-                                                 </div>
-                                             ))}
-                                         </div>
-                                     </div>
-                                 ))}
-                             </div>*/
-                            <div className="matchList">
-                                <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
-                                    {getQueue(match.info.queueId) == "5v5 Ranked Solo games" ? "Match classé solo" : getQueue(match.info.queueId) == "5v5 Ranked Flex games" ? "Ranked 5v5 Flex" : getQueue(match.info.queueId)}
-                                    {tab[index]}
-                                    {/*{match.info.participants.map((item) => (*/}
-                                    {/*    <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>*/}
-                                    {/*        <div style={{display: 'flex', flexDirection: 'column'}}>*/}
-                                    {/*            {item.summonerName === summoners.name && <img className="rounded-full" src={'https://ddragon.leagueoflegends.com/cdn/11.13.1/img/champion/' + item.championName + '.png'} style={{width: '50px'}}/>}*/}
-                                    {/*            {item.summonerName === summoners.name && item.championName}*/}
-                                    {/*        </div>*/}
-                                    {/*        <div style={{padding: '10px'}}>*/}
-                                    {/*            {item.summonerName === summoners.name && item.kills + "/" + item.deaths + "/" + item.assists}*/}
-                                    {/*        </div>*/}
-                                    {/*        /!*{(item.summonerName === summoners.name) && item.win === true ? 'Victoire' : (item.summonerName === summoners.name) && item.win === false ? 'Défaite' : ''}*!/*/}
-                                    {/*    </div>*/}
-                                    {/*))}*/}
-                                </div>
-                                <div style={{display: 'flex', flexDirection: 'column'}}>
-                                    {match.info.participants.map((item) => (
-                                        <div style={{display: 'flex', flexDirection: 'row'}} className={(item.summonerName === summoners.name) && item.win === true ? 'bg-blue' : (item.summonerName === summoners.name) && item.win === false ? 'bg-red' : ''}>
-                                            <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
-                                                <img src={'https://ddragon.leagueoflegends.com/cdn/11.13.1/img/champion/' + item.championName + '.png'} style={{width: '30px', marginRight: '10px'}}/>
-                                                <span style={{fontSize: 15}}>{item.summonerName}</span>
+                            <div className={(victory(match) === true ? "bg-blue" : "bg-red")}>
+                                <div className="matchList">
+                                    <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
+                                        {getQueue(match.info.queueId) == "5v5 Ranked Solo games" ? "Match classé solo" : getQueue(match.info.queueId) == "5v5 Ranked Flex games" ? "Ranked 5v5 Flex" : getQueue(match.info.queueId)}
+                                        {tab[index]}
+                                    </div>
+                                    <div style={{display: 'flex', flexDirection: 'column'}}>
+                                        {match.info.participants.map((item) => (
+                                            <div style={{display: 'flex', flexDirection: 'row'}}>
+                                                <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
+                                                    <img src={'https://ddragon.leagueoflegends.com/cdn/11.13.1/img/champion/' + item.championName + '.png'} style={{width: '30px', marginRight: '10px'}}/>
+                                                    <span style={{fontSize: 15}} className={(item.summonerName === summoners.name ? "font-bold" : "")}>{item.summonerName}</span>
+                                                </div>
                                             </div>
-                                        </div>
-                                    ))}
+                                        ))}
+                                    </div>
                                 </div>
                             </div>
                         ))}

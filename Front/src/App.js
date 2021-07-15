@@ -14,6 +14,7 @@ import CSGO from "./Pages/CSGO"
 import Login from "./Pages/Login"
 import Register from "./Pages/Register"
 import PlayerInfo from "./Pages/PlayerInfo";
+import './Style/text.css';
 
 
 export default function App() {
