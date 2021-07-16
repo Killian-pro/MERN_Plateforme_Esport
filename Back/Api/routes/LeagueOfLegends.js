@@ -1,6 +1,7 @@
 var express = require("express");
 var router = express.Router();
 const axios = require('axios');
+const API_KEY = "RGAPI-be0a9ce3-3316-447b-bf1a-1d7b23734ec0";
 
 router.get("/summoner", function (req, res, next) {
     const config = {
@@ -10,7 +11,7 @@ router.get("/summoner", function (req, res, next) {
         "Accept-Language": "fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7",
         "Accept-Charset": "application/x-www-form-urlencoded; charset=UTF-8",
         "Origin": "https://developer.riotgames.com",
-        "X-Riot-Token": "RGAPI-44c5bc1b-6bba-4640-a65e-6974669ee146"}
+        "X-Riot-Token": API_KEY}
     }
     axios(config)
         .then(resp => {
@@ -26,7 +27,7 @@ router.get("/profile", function (req, res, next) {
         "Accept-Language": "fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7",
         "Accept-Charset": "application/x-www-form-urlencoded; charset=UTF-8",
         "Origin": "https://developer.riotgames.com",
-        "X-Riot-Token": "RGAPI-44c5bc1b-6bba-4640-a65e-6974669ee146"}
+        "X-Riot-Token": API_KEY}
     }
     axios(config)
         .then(resp => {
@@ -42,7 +43,7 @@ router.get("/matchList", function (req, res, next) {
         "Accept-Language": "fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7",
         "Accept-Charset": "application/x-www-form-urlencoded; charset=UTF-8",
         "Origin": "https://developer.riotgames.com",
-        "X-Riot-Token": "RGAPI-44c5bc1b-6bba-4640-a65e-6974669ee146"}
+        "X-Riot-Token": API_KEY}
     }
     axios(config)
         .then(resp => {
@@ -58,7 +59,7 @@ router.get("/match", function (req, res, next) {
         "Accept-Language": "fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7",
         "Accept-Charset": "application/x-www-form-urlencoded; charset=UTF-8",
         "Origin": "https://developer.riotgames.com",
-        "X-Riot-Token": "RGAPI-44c5bc1b-6bba-4640-a65e-6974669ee146"}
+        "X-Riot-Token": API_KEY}
     }
     axios(config)
         .then(resp => {

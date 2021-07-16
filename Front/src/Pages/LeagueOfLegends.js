@@ -56,7 +56,8 @@ function LeagueOfLegends() {
             tab.push(
                 <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
                     <div style={{display: 'flex', flexDirection: 'column'}}>
-                        <img className="rounded-full" src={'https://ddragon.leagueoflegends.com/cdn/11.13.1/img/champion/' + result[0].championName + '.png'} style={{width: '50px'}}/>
+                        <img className="rounded-full" src={'https://ddragon.leagueoflegends.com/cdn/11.13.1/img/champion/' + result[0].championName + '.png'}
+                             style={{width: '50px'}}/>
                         {result[0].championName}
                     </div>
                     {getTimePlayed(result[0].timePlayed)}
@@ -149,23 +150,20 @@ function LeagueOfLegends() {
     return (
         <div style={{marginBottom: '2%'}}>
             <Menu/>
-            <div style={{backgroundColor: '#E7E8EE'}}>
-                <div className="inputs">
-                    <input
-                        value={keyword}
-                        placeholder={"Nom d'invocateur"}
-                        onChange={(event) => setKeyword(event.target.value)}
-                        onKeyUp={(event) => handleKeyPress(event)}
-                    />
-                    <span className="iconbox">
-                        <button onClick={() => {
-                            getSumByName()
-                        }}><IoIosSearch/></button>
-                    </span>
+            <div style={{backgroundColor: '#E7E8EE', paddingTop: '30px'}}>
+                <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
+                    <div className="inputs" style={{width: '80%'}}>
+                        <input value={keyword} placeholder={"Nom d'invocateur"}
+                               onChange={(event) => setKeyword(event.target.value)}
+                               onKeyUp={(event) => handleKeyPress(event)}/>
+                        <span className="iconbox">
+                            <button onClick={() => {getSumByName()}}><IoIosSearch/></button>
+                        </span>
+                    </div>
                 </div>
                 {isLoading && <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'center', marginTop: 20, marginLeft: '5%', marginRight: '5%'}}>
-                    <div style={{width: '80%', backgroundColor: 'blue', borderColor: 'blue', display: 'flex', flexDirection: 'row'}}>
-                        <img src={'https://ddragon.leagueoflegends.com/cdn/11.12.1/img/profileicon/' + summoners.profileIconId + '.png'} alt="profileIcon" style={{width: '10%'}}/>
+                    <div className="r" style={{width: '80%', backgroundColor: 'white', display: 'flex', flexDirection: 'row'}}>
+                        <img className="r-l" src={'https://ddragon.leagueoflegends.com/cdn/11.12.1/img/profileicon/' + summoners.profileIconId + '.png'} alt="profileIcon" style={{width: '10%'}}/>
                         {summoners.name}
                         <br/>
                         Level {summoners.summonerLevel}
@@ -212,7 +210,8 @@ function LeagueOfLegends() {
                                         {match.info.participants.map((item) => (
                                             <div style={{display: 'flex', flexDirection: 'row'}}>
                                                 <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
-                                                    <img src={'https://ddragon.leagueoflegends.com/cdn/11.13.1/img/champion/' + item.championName + '.png'} style={{width: '30px', marginRight: '10px'}}/>
+                                                    <img src={'https://ddragon.leagueoflegends.com/cdn/11.13.1/img/champion/' + item.championName + '.png'}
+                                                         style={{width: '30px', marginRight: '10px'}}/>
                                                     <span style={{fontSize: 15}} className={(item.summonerName === summoners.name ? "font-bold" : "")}>{item.summonerName}</span>
                                                 </div>
                                             </div>

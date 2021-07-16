@@ -15,6 +15,9 @@ import Login from "./Pages/Login"
 import Register from "./Pages/Register"
 import PlayerInfo from "./Pages/PlayerInfo";
 import './Style/text.css';
+import './Style/padding.css';
+import './Style/margin.css';
+import './Style/border.css';
 
 
 export default function App() {
