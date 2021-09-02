@@ -29,6 +29,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //mongodb
 mongoose.connect("mongodb+srv://whatthegame:whatthegame@whatsthegame.wtmjj.mongodb.net/Esport")
+.then(() => console.log("Database connected!"))
+.catch(err => console.log(err));
 
 app.use('/', indexRouter);
 app.use('/Teams', require("./routes/TeamsRouteur"));
