@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import axios from 'axios'
 
 function Connexion() {
     const [firstName, setFirstName] = useState('');
@@ -10,6 +11,13 @@ function Connexion() {
     const [backgroundImage, setBackgroundImage] = useState('https://cdn.icon-icons.com/icons2/2200/PNG/512/gamer_avatar_icon_133991.png');
     const [nextEtape, setNextEtape] = useState(false);
     const [showLink, setShowLink] = useState(false);
+
+
+    function sendvalue() {
+        const values = { firstName: firstName , lastName: lastName ,password:password ,mail :email ,pseudo : pseudo ,avatar :backgroundImage ,streamUrl:streamLink }
+        axios.post('http://localhost:9000/Player', values)
+        console.log('ok')
+    }
 
     return (
         <div style={{ backgroundImage: "linear-gradient(to right, #E92EFB, #04005E)", justifyContent: 'center', alignItems: 'center', display: 'flex', height: "100vh" }}>
@@ -87,7 +95,7 @@ function Connexion() {
                                 onChange={e => setStreamLink(e.target.value)}
                             />
                         </div>
-                        <button onClick={() => { }} style={{
+                        <button onClick={() => { sendvalue()}} style={{
                             backgroundColor: '#333333', borderWidth: 2, borderStyle: 'solid', borderRadius: 5, height: 50, marginLeft: 10, marginTop: 30,
                             color: 'white', fontWeight: 'bold', textAlign: 'center', width: "95%"
                         }}>

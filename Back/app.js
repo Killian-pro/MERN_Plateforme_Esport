@@ -7,6 +7,7 @@ var cors=require('cors')
 var indexRouter = require('./routes/index');
 var mongoose = require ('mongoose')
 LeagueOfLegendsRouter = require('./routes/LeagueOfLegends') 
+Player = require('./routes/PlayerRouteur') 
 CSGO = require('./routes/CSGO') 
 
 
@@ -30,13 +31,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 mongoose.connect("mongodb+srv://whatthegame:whatthegame@whatsthegame.wtmjj.mongodb.net/Esport")
 
 app.use('/', indexRouter);
-app.use('/Player', require("./routes/PlayerRouteur"));
 app.use('/Teams', require("./routes/TeamsRouteur"));
 app.use('/Platforms', require("./routes/PlatformsRouteur"));
 app.use('/Games', require("./routes/GamesRouteur"));
 app.use('/GamesPlayers', require("./routes/GamePlayersRouteur"));
 app.use('/GamesPlatforms', require("./routes/GamePlatformsRouteur"));
-app.use('/Player', require("./routes/PlayerRouteur"));
+app.use('/Player', Player);
 app.use('/LeagueOfLegends',LeagueOfLegendsRouter)
 app.use('/CSGO',CSGO)
 
