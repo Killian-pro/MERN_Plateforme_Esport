@@ -1,0 +1,28 @@
+.font-normal {
+    font-weight: normal !important;
+}
+
+.font-thin {
+    font-weight: 300 !important;
+}
+
+.font-medium {
+    font-weight: 500 !important;
+}
+
+.hover-bold:hover,
+.font-bold {
+    font-weight: 600 !important;
+}
+
+.font-bolder {
+    font-weight: 800 !important;
+}
+
+.text-ellipsis {
+    /*display: block;*/
+    overflow: inherit;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-break: break-all;
+}

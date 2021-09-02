@@ -1,0 +1,216 @@
+.b {
+    border: 0.9px solid rgba(0,0,0,.2);
+}
+
+.b-l {
+    border-left: 0.9px solid rgba(0,0,0,.2);
+}
+
+.b-t {
+    border-top: 0.9px solid rgba(0,0,0,.2);
+}
+
+.b-r {
+    border-right: 0.9px solid rgba(0,0,0,.2);
+}
+
+.b-b {
+    border-bottom: 0.9px solid rgba(0,0,0,.2);
+}
+
+.b-n {
+    border: 0 !important;
+}
+
+.b-2x {
+    border-width: 2px;
+}
+
+.b-3x {
+    border-width: 3px;
+}
+
+.b-4x {
+    border-width: 4px;
+}
+
+.b-5x {
+    border-width: 5px;
+}
+
+.b-6x {
+    border-width: 6px;
+}
+
+.b-8x {
+    border-width: 8px;
+}
+
+.b-dark {
+    border-color: rgba(0,0,0, 0.34);
+}
+
+.b-white {
+    border-color: rgb(255, 255, 255);
+}
+
+.b-white-opacity {
+    border-color: rgba(255, 255, 255, .3);
+}
+
+.b-light {
+    border-color: rgba(0,0,0, 0.06);
+}
+
+.b-transparent {
+    border-color: transparent !important;
+}
+
+.r-n {
+    border-radius: 0px !important;
+}
+
+.squared,
+.r {
+    border-radius: 6px !important;
+}
+
+.r-2x {
+    border-radius: 8px !important;
+}
+
+.r-3x {
+    border-radius: 12px !important;
+}
+
+.r-4x {
+    border-radius: 16px !important;
+}
+
+.r-t {
+    border-radius: 6px 6px 0 0;
+}
+
+.r-t-l {
+    border-radius: 6px 0 0 0;
+}
+
+.r-t-r {
+    border-radius: 0 6px 0 0;
+}
+
+.r-r {
+    border-radius: 0 6px 6px 0;
+}
+
+.r-b {
+    border-radius: 0 0 6px 6px;
+}
+
+.r-b-l {
+    border-radius: 0 0 0 6px;
+}
+
+.r-b-r {
+    border-radius: 0 0 6px 0;
+}
+
+.r-l {
+    border-radius: 6px 0 0 6px;
+}
+
+.hover-rounded:hover,
+.rounded {
+    border-radius: 3vh !important;
+}
+
+.rounded-full {
+    border-radius: 500vh;
+}
+
+.b-dashed {
+    border-style: dashed;
+}
+
+.shadow,
+.hover-shadow:hover {
+    box-shadow:  0px 4px 4px 1px rgba(175, 175, 175, .2),
+                  0px 0px 2px 0px rgba(175, 175, 175, .2) !important;
+}
+
+.hover-shadow {
+    transition-duration: .3s;
+}
+
+.shadow-dark,
+.hover-shadow-dark:hover {
+    box-shadow: 0 4px 4px 0 rgba(0,0,0, .15), 0 0px 2px 0 rgba(0,0,0, .15);
+}
+
+.hover-shadow-dark {
+    transition-duration: .3s;
+}
+
+.hover-grey:hover, .hover-grey.selected,
+.hover-light:hover, .hover-light.selected {
+    background-color: rgba(0,0,0, 0.26) !important;
+    box-shadow: none !important;
+}
+
+.hover-lighter:hover, .hover-lighter.selected {
+    background-color: rgba(158, 158, 158, 0.2) !important;
+    box-shadow: none !important;
+}
+
+.no-shadow, .no-shadow-all * {
+    box-shadow: none !important;
+}
+
+.hover-border {
+    border: 2px solid transparent;
+}
+
+.hover-border:hover {
+    border: 2px solid rgba(var(--theme-color), 0.5);
+}
+
+.b-insert-top {
+    border: none;
+    border-top: 2px dashed rgba(var(--theme-color), 0.5);
+}
+
+.hover-border-accent {
+    border-left: 4px solid rgb(var(--theme-color));
+}
+
+.hover-border-light {
+    border: 2px solid transparent;
+}
+
+.rounded-r {
+    border-top-right-radius: 3vh;
+    border-bottom-right-radius: 3vh;
+}
+
+.rounded-l {
+    border-top-left-radius: 3vh;
+    border-bottom-left-radius: 3vh;
+}
+
+.rounded-t {
+    border-top-left-radius: 3vh;
+    border-top-right-radius: 3vh;
+}
+
+.rounded-b {
+    border-bottom-left-radius: 3vh;
+    border-bottom-right-radius: 3vh;
+}
+
+.rounded-sm{
+  border-radius: 3px;
+}
+
+.border{
+  border: 1px solid darkgray;
+}
