@@ -3,7 +3,6 @@ var router = express.Router();
 const GamesPlayers = require('../models/GamePlayers');
 
 
-/* GET users listing. */
 router.route('/').post((req,res)=>
 {
   const playerId =req.body.playerId;
@@ -25,5 +24,6 @@ router.route('/').post((req,res)=>
     NewGamesPlayers.save()
 }
 );
+
 
 module.exports = router;

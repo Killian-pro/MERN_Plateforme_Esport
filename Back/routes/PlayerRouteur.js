@@ -28,4 +28,11 @@ router.route('/').post((req,res)=>
 }
 );
 
+router.route('/').get((req, res) => {
+  Player.findOne({mail: req.query.Email , password: req.query.Password })
+    .then(foundPlayer => {
+      res.json(foundPlayer)
+    })
+})
+
 module.exports = router;

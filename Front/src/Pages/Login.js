@@ -1,6 +1,28 @@
-import React from 'react'
+import React, {useEffect, useState} from "react";
+import axios from 'axios';
+import { Redirect } from "react-router";
+import { useHistory } from "react-router-dom";
 
 function Connexion() {
+    let history = useHistory();
+    const [user, setUser] = useState({})
+
+
+    useEffect(() => {
+        if (Object.keys(user).length) {
+            localStorage.setItem('id', user._id);
+            history.push("/");
+        }
+    }, [user])
+
+    function sendvalue()
+    {   
+        axios.get('http://localhost:9000/Player', {
+            params: {
+                Email: "aer",
+                Password: 'aera',
+            }}).then(res => setUser(res.data))
+    }
     return (
         <div style={{  backgroundImage: "linear-gradient(to right, #E92EFB, #04005E)", justifyContent: 'center', alignItems: 'center', display: 'flex', height: "100vh" }}>
             <div style={{ backgroundColor: 'white', width: 500, height: 450,borderRadius:"5%"}}>
@@ -20,7 +42,7 @@ function Connexion() {
                             placeholder={"Enter Password"}
                         />
                     </div>
-                    <button onClick={() => { }} style={{ backgroundColor: '#333333', borderWidth: 2, borderStyle: 'solid', borderRadius: 5, height: 50, marginLeft: 10, marginTop: 50,
+                    <button onClick={() => { sendvalue()}} style={{ backgroundColor: '#333333', borderWidth: 2, borderStyle: 'solid', borderRadius: 5, height: 50, marginLeft: 10, marginTop: 50,
                      color: 'white', fontWeight: 'bold', textAlign: 'center', width: "93%" }}>
                         Sign in
                     </button>
