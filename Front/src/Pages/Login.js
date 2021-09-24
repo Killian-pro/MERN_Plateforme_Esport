@@ -14,21 +14,21 @@ function Connexion() {
 
     useEffect(() => {
         if(user)
-        if (Object.keys(user).length) {
-            setInvalid(false)
-            localStorage.setItem('id', user._id);
-            history.push("/");
-        }
+            if (Object.keys(user).length) {
+                setInvalid(false)
+                localStorage.setItem('id', user._id);
+                history.push("/");
+            }
     }, [user])
 
     function sendvalue()
-    {   
+    {
         axios.get('http://localhost:9000/Player', {
             params: {
                 Email: email,
                 Password: password,
             }}).then(res => setUser(res.data))
-            setInvalid(true)
+        setInvalid(true)
     }
     return (
         <div style={{  backgroundImage: "linear-gradient(to right, #E92EFB, #04005E)", justifyContent: 'center', alignItems: 'center', display: 'flex', height: "100vh" }}>
@@ -48,18 +48,18 @@ function Connexion() {
                         <div style={{ margin: 10, fontWeight: 'bold',color:"#696969" }}>Password</div>
                         <input
                             style={{ width: "90%", fontWeight: 'bold', borderRadius: 5, margin: 10, height: 30, borderColor: '#A4A4A4',padding:5 }}
-                            placeholder={"Enter Password"}
+                            placeholder={"Enter Password"} type={"password"}
                             value={password}
                             onChange={e => setPassword(e.target.value)}
                         />
                     </div>
                     {invalid && <div style={{color:'red'}}> Utilisateur non existant </div>}
                     <button onClick={() => { sendvalue()}} style={{ backgroundColor: '#333333', borderWidth: 2, borderStyle: 'solid', borderRadius: 5, height: 50, marginLeft: 10, marginTop: 50,
-                     color: 'white', fontWeight: 'bold', textAlign: 'center', width: "93%" }}>
+                        color: 'white', fontWeight: 'bold', textAlign: 'center', width: "93%" }}>
                         Sign in
                     </button>
                     <div style={{display:'flex',justifyContent:'flex-end',marginTop:10,marginRight:"5%",color:"#696969"}}>Forgot
-                    <div style={{marginLeft:2,color:'#04005E'}}>password?</div></div>
+                        <div style={{marginLeft:2,color:'#04005E'}}>password?</div></div>
                 </div>
             </div>
         </div>

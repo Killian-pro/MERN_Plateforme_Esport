@@ -24,49 +24,50 @@ function Connexion() {
     return (
         <div style={{ backgroundImage: "linear-gradient(to right, #E92EFB, #04005E)", justifyContent: 'center', alignItems: 'center', display: 'flex', height: "100vh" }}>
             {nextEtape == false ? <div style={{ backgroundColor: 'white', width: 500, height: 400, borderRadius: "5%" }}>
-                <h1 style={{ textAlign: 'center' }}>Sign up</h1>
-                <div style={{ margin: 25 }}>
-                    <div style={{ display: 'flex' }}>
-                        {/* <div style={{ margin: 10, fontWeight: 'bold',color:"#696969" }}>Email</div> */}
-                        <input
-                            style={{ width: "90%", fontWeight: 'bold', borderRadius: 5, margin: 10, height: 30, borderColor: '#A4A4A4', padding: 5 }}
-                            placeholder={"First Name *"}
-                            value={firstName}
-                            onChange={e => setFirstName(e.target.value)}
-                        />
-                        {/* <div style={{ margin: 10, fontWeight: 'bold',color:"#696969" }}>Email</div> */}
-                        <input
-                            style={{ width: "90%", fontWeight: 'bold', borderRadius: 5, margin: 10, height: 30, borderColor: '#A4A4A4', padding: 5 }}
-                            placeholder={"Last Name *"}
-                            value={lastName}
-                            onChange={e => setLastName(e.target.value)}
-                        />
+                    <h1 style={{ textAlign: 'center' }}>Sign up</h1>
+                    <div style={{ margin: 25 }}>
+                        <div style={{ display: 'flex' }}>
+                            {/* <div style={{ margin: 10, fontWeight: 'bold',color:"#696969" }}>Email</div> */}
+                            <input
+                                style={{ width: "90%", fontWeight: 'bold', borderRadius: 5, margin: 10, height: 30, borderColor: '#A4A4A4', padding: 5 }}
+                                placeholder={"First Name *"}
+                                value={firstName}
+                                onChange={e => setFirstName(e.target.value)}
+                            />
+                            {/* <div style={{ margin: 10, fontWeight: 'bold',color:"#696969" }}>Email</div> */}
+                            <input
+                                style={{ width: "90%", fontWeight: 'bold', borderRadius: 5, margin: 10, height: 30, borderColor: '#A4A4A4', padding: 5 }}
+                                placeholder={"Last Name *"}
+                                value={lastName}
+                                onChange={e => setLastName(e.target.value)}
+                            />
+                        </div>
+                        <div>
+                            <input
+                                style={{ width: "92%", fontWeight: 'bold', borderRadius: 5, margin: 10, height: 30, borderColor: '#A4A4A4', padding: 5 }}
+                                placeholder={"Email *"}
+                                value={email}
+                                onChange={e => setEmail(e.target.value)}
+                            />
+                        </div>
+                        <div>
+                            {/* <div style={{ margin: 10, fontWeight: 'bold',color:"#696969" }}>Password</div> */}
+                            <input
+                                style={{ width: "92%", fontWeight: 'bold', borderRadius: 5, margin: 10, height: 30, borderColor: '#A4A4A4', padding: 5 }}
+                                placeholder={"Password *"}
+                                value={password}
+                                onChange={e => setPassword(e.target.value)}
+                                type={"password"}
+                            />
+                        </div>
+                        <button onClick={() => { setNextEtape(true) }} style={{
+                            backgroundColor: '#333333', borderWidth: 2, borderStyle: 'solid', borderRadius: 5, height: 50, marginLeft: 10, marginTop: 30,
+                            color: 'white', fontWeight: 'bold', textAlign: 'center', width: "95%"
+                        }}>
+                            Next
+                        </button>
                     </div>
-                    <div>
-                        <input
-                            style={{ width: "92%", fontWeight: 'bold', borderRadius: 5, margin: 10, height: 30, borderColor: '#A4A4A4', padding: 5 }}
-                            placeholder={"Email *"}
-                            value={email}
-                            onChange={e => setEmail(e.target.value)}
-                        />
-                    </div>
-                    <div>
-                        {/* <div style={{ margin: 10, fontWeight: 'bold',color:"#696969" }}>Password</div> */}
-                        <input
-                            style={{ width: "92%", fontWeight: 'bold', borderRadius: 5, margin: 10, height: 30, borderColor: '#A4A4A4', padding: 5 }}
-                            placeholder={"Password *"}
-                            value={password}
-                            onChange={e => setPassword(e.target.value)}
-                        />
-                    </div>
-                    <button onClick={() => { setNextEtape(true) }} style={{
-                        backgroundColor: '#333333', borderWidth: 2, borderStyle: 'solid', borderRadius: 5, height: 50, marginLeft: 10, marginTop: 30,
-                        color: 'white', fontWeight: 'bold', textAlign: 'center', width: "95%"
-                    }}>
-                        Next
-                    </button>
-                </div>
-            </div> :
+                </div> :
                 <div style={showLink == true ? {height:500}: {height:450},{ backgroundColor: 'white', width: 500,  borderRadius: "5%" }}>
                     <h1 style={{ textAlign: 'center' }}>Bienvenue {firstName} {lastName} </h1>
                     <div style={{ margin: 25 }}>
