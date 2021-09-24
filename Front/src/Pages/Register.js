@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import { useHistory } from "react-router-dom";
 
 function Connexion() {
+    let history = useHistory();
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
@@ -16,7 +18,7 @@ function Connexion() {
     function sendvalue() {
         const values = { firstName: firstName , lastName: lastName ,password:password ,mail :email ,pseudo : pseudo ,avatar :backgroundImage ,streamUrl:streamLink }
         axios.post('http://localhost:9000/Player', values)
-        console.log('ok')
+        history.push("/");
     }
 
     return (

@@ -13,6 +13,7 @@ import LeagueOfLegends from "./Pages/LeagueOfLegends"
 import CSGO from "./Pages/CSGO"
 import Login from "./Pages/Login"
 import Register from "./Pages/Register"
+import User from "./Pages/User"
 import PlayerInfo from "./Pages/PlayerInfo";
 import './Style/text.css';
 import './Style/padding.css';
@@ -30,6 +31,9 @@ export default function App() {
           </Route>
           <Route path="/Inscription">
             <Register />
+          </Route>
+          <Route path="/User">
+            <User />
           </Route>
           <Route path="/statistiques/LeagueOfLegends">
             <LeagueOfLegends />

@@ -6,10 +6,16 @@ import { useHistory } from "react-router-dom";
 function Connexion() {
     let history = useHistory();
     const [user, setUser] = useState({})
+    const [email, setEmail] = useState()
+    const [password, setPassword] = useState()
+    const [invalid, setInvalid] = useState(false)
+
 
 
     useEffect(() => {
+        if(user)
         if (Object.keys(user).length) {
+            setInvalid(false)
             localStorage.setItem('id', user._id);
             history.push("/");
         }
@@ -19,9 +25,10 @@ function Connexion() {
     {   
         axios.get('http://localhost:9000/Player', {
             params: {
-                Email: "aer",
-                Password: 'aera',
+                Email: email,
+                Password: password,
             }}).then(res => setUser(res.data))
+            setInvalid(true)
     }
     return (
         <div style={{  backgroundImage: "linear-gradient(to right, #E92EFB, #04005E)", justifyContent: 'center', alignItems: 'center', display: 'flex', height: "100vh" }}>
@@ -33,6 +40,8 @@ function Connexion() {
                         <input
                             style={{ width: "90%", fontWeight: 'bold', borderRadius: 5, margin: 10, height: 30, borderColor: '#A4A4A4',padding:5 }}
                             placeholder={"Enter email"}
+                            value={email}
+                            onChange={e => setEmail(e.target.value)}
                         />
                     </div>
                     <div>
@@ -40,8 +49,11 @@ function Connexion() {
                         <input
                             style={{ width: "90%", fontWeight: 'bold', borderRadius: 5, margin: 10, height: 30, borderColor: '#A4A4A4',padding:5 }}
                             placeholder={"Enter Password"}
+                            value={password}
+                            onChange={e => setPassword(e.target.value)}
                         />
                     </div>
+                    {invalid && <div style={{color:'red'}}> Utilisateur non existant </div>}
                     <button onClick={() => { sendvalue()}} style={{ backgroundColor: '#333333', borderWidth: 2, borderStyle: 'solid', borderRadius: 5, height: 50, marginLeft: 10, marginTop: 50,
                      color: 'white', fontWeight: 'bold', textAlign: 'center', width: "93%" }}>
                         Sign in
