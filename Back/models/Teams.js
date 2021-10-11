@@ -2,7 +2,7 @@ var mongoose = require ('mongoose')
 
 const TeamsSchema =
 {
-  gamesPlatformsId: Int,
+  gamesPlatformsId: String,
   teamName: String,
   tag: String,
   description: String,

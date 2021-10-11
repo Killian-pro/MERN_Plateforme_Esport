@@ -10,7 +10,6 @@ router.route('/').post((req, res) => {
         const description = req.body.description;
         const logo = req.body.logo;
         const streamUrl = req.body.streamUrl;
-        console.log(req);
 
         const NewTeams = new Teams(
             {
