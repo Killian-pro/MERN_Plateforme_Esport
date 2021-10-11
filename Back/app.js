@@ -10,10 +10,7 @@ LeagueOfLegendsRouter = require('./routes/LeagueOfLegends')
 PlayerWithID = require('./routes/PlayerWithID') 
 Player = require('./routes/PlayerRouteur') 
 CSGO = require('./routes/CSGO') 
-
-
-
-
+Teams = require("./routes/TeamsRouteur")
 
 var app = express();
 
@@ -34,11 +31,11 @@ mongoose.connect("mongodb+srv://whatthegame:whatthegame@whatsthegame.wtmjj.mongo
 .catch(err => console.log(err));
 
 app.use('/', indexRouter);
-app.use('/Teams', require("./routes/TeamsRouteur"));
 app.use('/Platforms', require("./routes/PlatformsRouteur"));
 app.use('/Games', require("./routes/GamesRouteur"));
 app.use('/GamesPlayers', require("./routes/GamePlayersRouteur"));
 app.use('/GamesPlatforms', require("./routes/GamePlatformsRouteur"));
+app.use('/Teams', Teams);
 app.use('/Player', Player);
 app.use('/PlayerWithID', PlayerWithID);
 app.use('/LeagueOfLegends',LeagueOfLegendsRouter)

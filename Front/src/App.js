@@ -15,6 +15,8 @@ import Login from "./Pages/Login"
 import Register from "./Pages/Register"
 import User from "./Pages/User"
 import PlayerInfo from "./Pages/PlayerInfo";
+import Players from "./Pages/Players";
+import Teams from "./Pages/Teams";
 import './Style/text.css';
 import './Style/padding.css';
 import './Style/margin.css';
@@ -43,6 +45,12 @@ export default function App() {
           </Route>
           <Route path="/Stats">
             <Stats />
+          </Route>
+          <Route path="/Recrutement/Players">
+            <Players />
+          </Route>
+          <Route path="/Recrutement/Teams">
+            <Teams />
           </Route>
           <Route path="/Recrutement">
             <Recruitment />

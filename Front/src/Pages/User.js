@@ -4,6 +4,12 @@ import Menu from "../Component/Menu";
 
 function Connexion() {
     const [user, setUser] = useState({})
+    const [gamesPlatformsId, setGamesPlatformsId] = useState(1);
+    const [teamName, setTeamName] = useState('');
+    const [tag, setTag] = useState('');
+    const [description, setDescription] = useState('');
+    const [logo, setLogo] = useState('');
+    const [streamUrl, setStreamUrl] = useState('');
 
     useEffect(() => {
         sendvalue()
@@ -16,6 +22,12 @@ function Connexion() {
                 _id: localStorage.getItem('id')
             }
         }).then(res => setUser(res.data))
+    }
+
+    function createTeam() {
+        const values = {gamesPlatformsId: gamesPlatformsId, teamName: teamName, tag: tag, description: description, logo: logo, streamUrl: streamUrl}
+        axios.post('http://localhost:9000/Teams', values)
+        //history.push("/");
     }
 
     return (
@@ -36,6 +48,53 @@ function Connexion() {
                     <div style={{margin: 25}}>
                         {localStorage.getItem('id') ? <button>Créer une équipe</button> :
                             <button disabled>Créer une équipe</button>}
+                    </div>
+
+                    <div>
+                        <div style={{ display: 'flex' }}>
+                            <input
+                                style={{ width: "90%", fontWeight: 'bold', borderRadius: 5, margin: 10, height: 30, borderColor: '#A4A4A4', padding: 5 }}
+                                required
+                                placeholder={"Nom de l'équipe *"}
+                                value={teamName}
+                                onChange={e => setTeamName(e.target.value)}
+                            />
+                        </div>
+                        <div>
+                            <input
+                                style={{ width: "92%", fontWeight: 'bold', borderRadius: 5, margin: 10, height: 30, borderColor: '#A4A4A4', padding: 5 }}
+                                required
+                                placeholder={"Tag *"}
+                                value={tag}
+                                onChange={e => setTag(e.target.value)}
+                            />
+                        </div>
+                        <div>
+                            <input
+                                style={{ width: "92%", fontWeight: 'bold', borderRadius: 5, margin: 10, height: 30, borderColor: '#A4A4A4', padding: 5 }}
+                                required
+                                placeholder={"Description *"}
+                                value={description}
+                                onChange={e => setDescription(e.target.value)}
+                            />
+                        </div>
+                        <div>
+                            <input
+                                style={{ width: "92%",color:'#696969', borderRadius: 5, margin: 10, height: 20, borderColor: '#A4A4A4', padding: 5 }}
+                                placeholder={"Url du logo"}
+                                value={logo}
+                                onChange={e => setLogo(e.target.value)}
+                            />
+                        </div>
+                        <div>
+                            <input
+                                style={{ width: "92%", fontWeight: 'bold', borderRadius: 5, margin: 10, height: 30, borderColor: '#A4A4A4', padding: 5 }}
+                                placeholder={"Stream url"}
+                                value={streamUrl}
+                                onChange={e => setStreamUrl(e.target.value)}
+                            />
+                        </div>
+                        <button onClick={() => {createTeam()}}>Créer l'équipe</button>
                     </div>
                 </div>
             </div>

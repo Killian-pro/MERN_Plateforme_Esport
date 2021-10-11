@@ -30,6 +30,7 @@ function Connexion() {
                             {/* <div style={{ margin: 10, fontWeight: 'bold',color:"#696969" }}>Email</div> */}
                             <input
                                 style={{ width: "90%", fontWeight: 'bold', borderRadius: 5, margin: 10, height: 30, borderColor: '#A4A4A4', padding: 5 }}
+                                required
                                 placeholder={"First Name *"}
                                 value={firstName}
                                 onChange={e => setFirstName(e.target.value)}
@@ -37,6 +38,7 @@ function Connexion() {
                             {/* <div style={{ margin: 10, fontWeight: 'bold',color:"#696969" }}>Email</div> */}
                             <input
                                 style={{ width: "90%", fontWeight: 'bold', borderRadius: 5, margin: 10, height: 30, borderColor: '#A4A4A4', padding: 5 }}
+                                required
                                 placeholder={"Last Name *"}
                                 value={lastName}
                                 onChange={e => setLastName(e.target.value)}
@@ -45,6 +47,7 @@ function Connexion() {
                         <div>
                             <input
                                 style={{ width: "92%", fontWeight: 'bold', borderRadius: 5, margin: 10, height: 30, borderColor: '#A4A4A4', padding: 5 }}
+                                required
                                 placeholder={"Email *"}
                                 value={email}
                                 onChange={e => setEmail(e.target.value)}
@@ -54,6 +57,7 @@ function Connexion() {
                             {/* <div style={{ margin: 10, fontWeight: 'bold',color:"#696969" }}>Password</div> */}
                             <input
                                 style={{ width: "92%", fontWeight: 'bold', borderRadius: 5, margin: 10, height: 30, borderColor: '#A4A4A4', padding: 5 }}
+                                required
                                 placeholder={"Password *"}
                                 value={password}
                                 onChange={e => setPassword(e.target.value)}
@@ -85,6 +89,7 @@ function Connexion() {
                         <div>
                             <input
                                 style={{ width: "92%", fontWeight: 'bold', borderRadius: 5, margin: 10, height: 30, borderColor: '#A4A4A4', padding: 5 }}
+                                required
                                 placeholder={"Pseudo *"}
                                 value={pseudo}
                                 onChange={e => setPseudo(e.target.value)}

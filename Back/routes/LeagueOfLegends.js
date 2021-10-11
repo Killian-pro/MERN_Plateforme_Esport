@@ -1,7 +1,7 @@
 var express = require("express");
 var router = express.Router();
 const axios = require('axios');
-const API_KEY = "RGAPI-be0a9ce3-3316-447b-bf1a-1d7b23734ec0";
+const API_KEY = "RGAPI-34f339c1-51ac-4373-9292-7b6e2d32a00e";
 
 router.get("/summoner", function (req, res, next) {
     const config = {
