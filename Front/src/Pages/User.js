@@ -17,7 +17,7 @@ function Connexion() {
 
 
     function sendvalue() {
-        axios.get('http://localhost:9000/PlayerWithID', {
+        axios.get('http://localhost:9000/Players', {
             params: {
                 _id: localStorage.getItem('id')
             }

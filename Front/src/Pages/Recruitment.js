@@ -34,14 +34,16 @@ import React from "react";
 import Menu from '../Component/Menu';
 import '../Style/Statistiques.css';
 import RecruitmentLinkSimple from "../Component/RecruitmentLinkSimple";
+import JoueurImage from '../Img/joueur.jpg'
+import Teams from '../Img/Teams.jpg'
 
 function Recruitment() {
     return (
         <div style={{ marginBottom: '2%' }}>
             <Menu />
-            <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }} >
-                <RecruitmentLinkSimple link={"/Recrutement/Players"} image={"https://pbs.twimg.com/media/ExVhupOWgAMly0j.jpg"} name={'Joueurs'} />
-                <RecruitmentLinkSimple link={"/Recrutement/Teams"} image={"https://pbs.twimg.com/media/Et-HFYUXAAEcmaq.jpg"} name={'Equipes'} />
+            <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', marginTop: 50 }} >
+                <RecruitmentLinkSimple link={"/Recrutement/Players"} image={JoueurImage} name={'Joueurs'} />
+                <RecruitmentLinkSimple link={"/Recrutement/Teams"} image={Teams} name={'Equipes'} />
             </div>
         </div>
     );

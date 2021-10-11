@@ -7,7 +7,7 @@ var cors=require('cors')
 var indexRouter = require('./routes/index');
 var mongoose = require ('mongoose')
 LeagueOfLegendsRouter = require('./routes/LeagueOfLegends') 
-PlayerWithID = require('./routes/PlayerWithID') 
+Players = require('./routes/Players') 
 Player = require('./routes/PlayerRouteur') 
 CSGO = require('./routes/CSGO') 
 Teams = require("./routes/TeamsRouteur")
@@ -37,7 +37,7 @@ app.use('/GamesPlayers', require("./routes/GamePlayersRouteur"));
 app.use('/GamesPlatforms', require("./routes/GamePlatformsRouteur"));
 app.use('/Teams', Teams);
 app.use('/Player', Player);
-app.use('/PlayerWithID', PlayerWithID);
+app.use('/Players', Players);
 app.use('/LeagueOfLegends',LeagueOfLegendsRouter)
 app.use('/CSGO',CSGO)
 

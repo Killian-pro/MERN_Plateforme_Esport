@@ -35,4 +35,11 @@ router.route('/').get((req, res) => {
     })
 })
 
+router.route('/all').get((req, res) => {
+  Player.find({})
+      .then(playerList => {
+          res.json(playerList)
+      })
+})
+
 module.exports = router;

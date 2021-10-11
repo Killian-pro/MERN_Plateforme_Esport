@@ -14,8 +14,8 @@ function PlayerInfo(props) {
             <div style={{ boxShadow: "1px 1px 1px 2px #9E9E9E", display: 'flex', backgroundPosition: 'center', height: 250, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundImage: `url(${banner})` }}>
                 <div style={{ display: 'flex', justifyContent: 'center', marginLeft: 200, flex: 1, flexDirection: "column" }}>
                     <div style={{ fontWeight: 'bold', color: "#B4B4B4" }}>GAME</div>
-                    <h1 style={{ color: 'white' }}>{location.name}</h1>
-                    <div style={{ fontWeight: 'bold', color: "#B4B4B4" }}>NOM PRENOM</div>
+                    <h1 style={{ color: 'white' }}>{location?.id?.pseudo}</h1>
+                    <div style={{ fontWeight: 'bold', color: "#B4B4B4" }}>{location?.id?.firstName} {location?.id?.lastName}</div>
                 </div>
                 <div style={{ display: 'flex', justifyContent: "center", flex: 1, flexDirection: "column", textAlign: 'center', borderStyle: 'solid', borderWidth: 2, color: 'white', margin: 80 }}>
                     CE JOUEUR EST DISPONIBLE
@@ -25,7 +25,7 @@ function PlayerInfo(props) {
             <div style={{ display: 'flex',  margin: 50, marginLeft: 200,marginBottom:50 }}>
                 <div style={{ height: 200, display: 'flex', flex: 1 }}>
                     <div style={{ position: 'absolute', bottom: 200 }}>
-                        <img style={{ width: 200, height: 200 }} src={"https://seek-team-prod.s3.fr-par.scw.cloud/users/6078392a868c0702994193.jpg"} alt="ico" />
+                        <img style={{ width: 200, height: 200 }} src={location?.id?.avatar} alt="ico" />
                     </div>
                 </div>
                 <div style={{ display: 'flex', flex: 2, flexDirection: 'column' }}>
@@ -42,23 +42,29 @@ function PlayerInfo(props) {
                         </div>
                     </div>
                     <div style={{ display: 'flex', flex: 1, flexDirection: 'column' }}>
-                        <h2>Profils</h2>
-                        <div>Player</div>
+                        {location?.id?.profil && <>
+                            <h2>Profils</h2>
+                            <div>Player</div>
+                            </>}
+                        {location?.id?.ambition && <>
                         <h2>AMBITIONS</h2>
-                        <div>Play in Tournaments.
-                            Grow into something bigger.
-                            To live my dream of playing in E-Sports
-                            Pro leagues.
-                        </div>
-                        <h2>EXPERIENCES ONLINE</h2>
                         <div>
-                            Diamond League (Apex)
-                            Max Prestige in all CoD.
+                        {location?.id?.ambition}
                         </div>
-                        <h2>DESCRIPTION</h2>
-                        <div>
-                            I've gotten to diamond league solo in most of the seasons. I've bounced back between Apex and Warzone, but now am focused on Apex. I am a team player. My call-outs and reflexes are on point.
-                        </div>
+                        </>}
+                        {location?.id?.experience && <>
+                            <h2>EXPERIENCES ONLINE</h2>
+                            <div>
+                                {location?.id?.experience}
+                            </div>
+                        </>}
+                        {location?.id?.description &&
+                            <>
+                                <h2>DESCRIPTION</h2>
+                                <div>
+                                    {location?.id?.description}
+                                </div>
+                            </>}
                         <h2>LOCALISATION</h2>
                         <div>
                             FRANCE
