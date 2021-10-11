@@ -13,9 +13,9 @@ function News() {
             {/* Appel du menu */}
             <Menu/>
             {/* Afficher le premier article */}
-            <div style={{display: 'flex', flexdirection : 'row', justifyContent:'center',alignItems:'center',marginLeft:'10%',marginRight:'10%',marginTop:'5%',marginBottom:'5%'}}>
-                <img style={{width:'40%' ,borderRadius:10}} src={setup} alt="article" />
-                <div> <MainNews id={0} /></div>
+            <div style={{ flexdirection : 'row', justifyContent:'center',alignItems:'center',marginLeft:'10%',marginRight:'10%',marginTop:'5%',marginBottom:'5%'}}>
+                {/* <img style={{width:'40%' ,borderRadius:10}} src={setup} alt="article" /> */}
+                <div style={{width:'50%'}}> <MainNews id={0} /></div>
             </div>
             <hr style={{backgroundColor: 'grey',marginLeft:'10%',marginRight:'10%',height:"0.05px"}}/>
             {/* Afficher les articles 1 à 3 */}

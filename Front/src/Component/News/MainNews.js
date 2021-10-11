@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import '../../Style/News.css';
 import * as rssParser from 'react-native-rss-parser';
+import setup from '../../Img/setup.jpg'
+
 
 class MainNews extends Component {
     constructor(props) {
@@ -11,6 +13,7 @@ class MainNews extends Component {
             items: [],
             content_title: [],
             content_description: [],
+            images :''
         }
     }
     componentDidMount() {
@@ -27,6 +30,20 @@ class MainNews extends Component {
             })
     }
 
+    getImage(src)
+    {
+        // return fetch('https://serpapi.com/search.json?q='+src+'&tbm=isch&ijn=0&api_key=2c57573f368c90ecaf4dd672b50376d8c068983fdc8d89d20173a49de2083eef')
+        //     .then((response) => response.json().then(json => {
+        //        console.log(json.images_results[0].thumbnail)
+        //       }))
+        if(src)
+        fetch('https://serpapi.com/search.json?q='+src+'&tbm=isch&ijn=0&api_key=2c57573f368c90ecaf4dd672b50376d8c068983fdc8d89d20173a49de2083eef')
+            .then((response) => response.json().then(json => {
+                this.setState({ images: json.images_results[0].thumbnail })
+              }))
+    }
+
+
     // fonction pour récupérer le tableau dans les fils
     passitems()
     {
@@ -38,6 +55,11 @@ class MainNews extends Component {
     render() {
         return (
             <div style={{marginLeft:'2%',width:'80%' }}>
+                {/* AJOUTER DES IMAGES PROBLEMES PERF */}
+                {/* {this.getImage(this.state.content_title[this.props.id])} */}
+                {this.props.description !==false && (this.state.images ? <img style={{ width: '100%', borderRadius: 10 }} src={this.state.images} alt="article" /> : <img style={{ width: '100%', borderRadius: 10 }} src={setup} alt="article" />)}
+                {this.props.description ==false && this.props.home==false && (this.state.images ? <img style={{ width: '20%', borderRadius: 10 }} src={this.state.images} alt="article" /> : <img style={{ width: '20%', borderRadius: 10 }} src={setup} alt="article" />)}
+                {this.props.description ==false && this.props.home==true && (this.state.images ? <img style={{ width: '55%', borderRadius: 10 }} src={this.state.images} alt="article" /> : <img style={{ width: '100%', borderRadius: 10 }} src={setup} alt="article" />)}
                 {/* tag en dur pour le moment*/}
                 <div style={{color:'#440BD4',fontSize:'60%',marginBottom:'0.5%',fontWeight:'bold'}}>#TEAM</div>
                 {/* titre */}

@@ -10,7 +10,7 @@ function MediumNews() {
         articles.push(
             // affichage des articles 2 à 4
             <div style={{ width: 400, marginTop: '5%', marginBottom: '5%', marginRight: '5%', justifyContent: 'center', alignItems: 'center' }}>
-                <img style={{ width: '100%', borderRadius: 10 }} src={setup} alt="article" />
+                {/* <img style={{ width: '100%', borderRadius: 10 }} src={setup} alt="article" /> */}
                 {/* passage de l'index en props */}
                 <News id={i} />
             </div>)

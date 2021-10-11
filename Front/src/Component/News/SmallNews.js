@@ -32,10 +32,10 @@ function SmallNews() {
     for (let i = 4; i < more; i++) {
         articles.push(
             <>
-                <div style={{ marginTop: '1%', marginBottom: '1%', justifyContent: 'center', alignItems: 'center', display: 'flex' }}>
-                    <img style={{ width: '20%', borderRadius: 10 }} src={setup} alt="article" />
+                <div style={{ marginTop: '1%', marginBottom: '1%', justifyContent: 'center', alignItems: 'center' }}>
+                    {/* <img style={{ width: '20%', borderRadius: 10 }} src={setup} alt="article" /> */}
                     {/* affichage des articles de 4 à more et passage des props id et description */}
-                    <News id={i} description={false} getNbItems={(items)=>getNbItems(items)}  />
+                    <News id={i} description={false} home={false} getNbItems={(items) => getNbItems(items)} />
                 </div>
                 <hr style={{ backgroundColor: 'grey',  marginRight: '10%', height: "0.05px", marginBottom: '1%' }} />
             </>
