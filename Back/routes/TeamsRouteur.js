@@ -4,7 +4,7 @@ const Teams = require('../models/Teams');
 
 /* Post team */
 router.route('/').post((req, res) => {
-        const gamesPlatformsId = req.body.gamesPlatformsId;
+        const gameId = req.body.gameId;
         const teamName = req.body.teamName;
         const tag = req.body.tag;
         const description = req.body.description;
@@ -13,7 +13,7 @@ router.route('/').post((req, res) => {
 
         const NewTeams = new Teams(
             {
-                gamesPlatformsId,
+                gameId,
                 teamName,
                 tag,
                 description,

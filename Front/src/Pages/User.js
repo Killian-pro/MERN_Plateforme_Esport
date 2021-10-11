@@ -4,7 +4,7 @@ import Menu from "../Component/Menu";
 
 function Connexion() {
     const [user, setUser] = useState({})
-    const [gamesPlatformsId, setGamesPlatformsId] = useState(1);
+    const [gameId, setGameId] = useState("1");
     const [teamName, setTeamName] = useState('');
     const [tag, setTag] = useState('');
     const [description, setDescription] = useState('');
@@ -25,7 +25,7 @@ function Connexion() {
     }
 
     function createTeam() {
-        const values = {gamesPlatformsId: gamesPlatformsId, teamName: teamName, tag: tag, description: description, logo: logo, streamUrl: streamUrl}
+        const values = {gameId: gameId, teamName: teamName, tag: tag, description: description, logo: logo, streamUrl: streamUrl}
         axios.post('http://localhost:9000/Teams', values)
         //history.push("/");
     }

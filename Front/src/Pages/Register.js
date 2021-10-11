@@ -76,7 +76,8 @@ function Connexion() {
                     <h1 style={{ textAlign: 'center' }}>Bienvenue {firstName} {lastName} </h1>
                     <div style={{ margin: 25 }}>
                         <div style={{ textAlign: 'center' }}>
-                            <button onClick={() => { setShowLink(true) }} style={{ borderWidth: 0.5, borderColor: '#A4A4A4', borderRadius: 35,alignContent:'center', backgroundColor: 'transparent' }}><img src={backgroundImage} style={{ width: 55, height: 55,borderRadius: 35 }} /></button>
+                            <button onClick={() => { setShowLink(true) }} style={{ borderWidth: 0.5, borderColor: '#A4A4A4', borderRadius: 35,alignContent:'center', backgroundColor: 'transparent' }}>
+                                <img src={backgroundImage} style={{ width: 55, height: 55,borderRadius: 35 }} /></button>
                             <div style={{ fontWeight: 'bold', color: "#696969", textAlign: 'center' }}>Ajoute ton</div>
                             <div style={{ marginBottom: 10, fontWeight: 'bold', color: "#696969", textAlign: 'center' }}>Avatar</div>
                             {showLink && <input

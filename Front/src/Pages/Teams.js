@@ -3,6 +3,7 @@ import Menu from '../Component/Menu';
 import '../Style/Statistiques.css';
 import Footer from "../Component/Footer";
 import axios from "axios";
+import {Link} from "react-router-dom";
 
 function Teams() {
     const [teams, setTeams] = useState([])
@@ -19,11 +20,14 @@ function Teams() {
     return (
         <div>
             <Menu/>
-            <button onClick={() => {getTeams()}}>ALooo</button>
-            <div>
+
+            <div style={{display: "flex", flexDirection: "row", flexWrap: "wrap"}}>
                 {teams?.map((team) => (
-                    <div>
-                        {team.teamName}
+                    <div style={{width: '20%', margin: '10px', display: "flex", flexDirection: "column", border: 'solid 1px', borderRadius: '10px'}}>
+                        <img style={{}} src={team.logo} alt={team.teamName}/>
+                        <Link style={{textDecoration: 'none'}} to={{pathname: `/team/${team._id}`, team: team}}>
+                            <div style={{fontSize: '20px', fontWeight: 'bold', padding: '10px'}}>{team.teamName}</div>
+                        </Link>
                     </div>
                 ))}
             </div>

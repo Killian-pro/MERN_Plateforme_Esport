@@ -17,11 +17,11 @@ import User from "./Pages/User"
 import PlayerInfo from "./Pages/PlayerInfo";
 import Players from "./Pages/Players";
 import Teams from "./Pages/Teams";
+import TeamInfo from "./Pages/TeamInfo";
 import './Style/text.css';
 import './Style/padding.css';
 import './Style/margin.css';
 import './Style/border.css';
-
 
 export default function App() {
   return (
@@ -57,6 +57,9 @@ export default function App() {
           </Route>
           <Route path="/PlayerRecrutement/:name/" >
             <PlayerInfo />
+          </Route>
+          <Route path="/Team/:id" >
+            <TeamInfo />
           </Route>
           <Route path="/Streams">
             <Stream />
