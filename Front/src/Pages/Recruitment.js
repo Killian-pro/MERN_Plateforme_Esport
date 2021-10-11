@@ -20,8 +20,6 @@ function Recruitment() {
         <div >
             <Menu />
             <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', margin: 15, justifyContent: 'center' }}>
-                {localStorage.getItem('id') ? <button>Créer une équipe</button>:
-                    <button disabled>Créer une équipe</button>}
                 <PlayerCard />
                 {/* <div style={{ flex: 1, minWidth: '20%', backgroundColor: '#e3e5e5'}}>
                     <div style={{borderColor: '#440BD4', borderWidth: 2, borderStyle: 'solid', borderRadius: 5,margin:10,height:'98%', backgroundColor: 'white'}}>
