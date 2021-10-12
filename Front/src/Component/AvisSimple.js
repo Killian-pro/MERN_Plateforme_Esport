@@ -2,7 +2,7 @@ import React from 'react'
 
 function AvisSimple(props) {
     return (
-        <div style={{ alignContent: 'center', boxShadow: "0 2px 2px 0px #9E9E9E", borderRadius: 25, padding: 15, marginLeft: '5%', marginRight: '5%', marginTop: '3%' }}>
+        <div style={{ alignContent: 'center', boxShadow: "0 2px 2px 0px #9E9E9E", borderRadius: 25, padding: 15,width:400, marginLeft: '5%', marginRight: '5%', marginTop: '3%' }}>
             <div style={{ borderWidth: 30, alignItems: 'center', textAlign: 'center', color: "#585555" }}>
                 {props.text}
             </div>

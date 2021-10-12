@@ -10,6 +10,10 @@ router.route('/').post((req, res) => {
         const description = req.body.description;
         const logo = req.body.logo;
         const streamUrl = req.body.streamUrl;
+        const experience = req.body.experience;
+        const ambition = req.body.ambition;
+        const rank = req.body.rank;
+        const idcreator  = req.body.idcreator;
 
         const NewTeams = new Teams(
             {
@@ -19,6 +23,10 @@ router.route('/').post((req, res) => {
                 description,
                 logo,
                 streamUrl,
+                experience,
+                ambition,
+                rank,
+                idcreator
             });
         NewTeams.save()
     }
@@ -31,6 +39,14 @@ router.route('/').get((req, res) => {
             res.json(teamList)
         })
 })
+
+/* Get team by user id. */
+router.route('/id').get((req, res) => {
+    Teams.findOne({idcreator: req.query._id})
+      .then(foundPlayer => {
+        res.json(foundPlayer)
+      })
+  })
 
 /*/!* Get team *!/
 router.route('/').get((req, res) => {

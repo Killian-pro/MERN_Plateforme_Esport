@@ -8,7 +8,11 @@ const PlayerSchema =
   mail: String,
   pseudo: String,
   avatar: String,
-  streamUrl: String
+  streamUrl: String,
+  ambition : String,
+  experience : String,
+  rank : String,
+  description : String
 }
 
 const Player = mongoose.model("Player",PlayerSchema)

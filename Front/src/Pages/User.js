@@ -10,6 +10,9 @@ function Connexion() {
     const [description, setDescription] = useState('');
     const [logo, setLogo] = useState('');
     const [streamUrl, setStreamUrl] = useState('');
+    const [experience, setExperience] = useState('');
+    const [ambition, setAmbition] = useState('');
+    const [rank, setRank] = useState('');
 
     useEffect(() => {
         sendvalue()
@@ -25,7 +28,7 @@ function Connexion() {
     }
 
     function createTeam() {
-        const values = {gameId: gameId, teamName: teamName, tag: tag, description: description, logo: logo, streamUrl: streamUrl}
+        const values = {gameId: gameId, teamName: teamName, tag: tag, description: description, logo: logo, streamUrl: streamUrl , experience: experience , rank :rank , ambition :ambition}
         axios.post('http://localhost:9000/Teams', values)
         //history.push("/");
     }
@@ -92,6 +95,30 @@ function Connexion() {
                                 placeholder={"Stream url"}
                                 value={streamUrl}
                                 onChange={e => setStreamUrl(e.target.value)}
+                            />
+                        </div>
+                        <div>
+                            <input
+                                style={{ width: "92%", fontWeight: 'bold', borderRadius: 5, margin: 10, height: 30, borderColor: '#A4A4A4', padding: 5 }}
+                                placeholder={"ambition"}
+                                value={ambition}
+                                onChange={e => setAmbition(e.target.value)}
+                            />
+                        </div>
+                        <div>
+                            <input
+                                style={{ width: "92%", fontWeight: 'bold', borderRadius: 5, margin: 10, height: 30, borderColor: '#A4A4A4', padding: 5 }}
+                                placeholder={"experience"}
+                                value={experience}
+                                onChange={e => setExperience(e.target.value)}
+                            />
+                        </div>
+                        <div>
+                            <input
+                                style={{ width: "92%", fontWeight: 'bold', borderRadius: 5, margin: 10, height: 30, borderColor: '#A4A4A4', padding: 5 }}
+                                placeholder={"rank"}
+                                value={rank}
+                                onChange={e => setRank(e.target.value)}
                             />
                         </div>
                         <button onClick={() => {createTeam()}}>Créer l'équipe</button>

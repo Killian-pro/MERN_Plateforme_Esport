@@ -8,6 +8,10 @@ const TeamsSchema =
   description: String,
   logo: String,
   streamUrl: String,
+  experience : String,
+  ambition : String,
+  rank : String,
+  idcreator : String
 }
 
 const Teams = mongoose.model("Teams",TeamsSchema)

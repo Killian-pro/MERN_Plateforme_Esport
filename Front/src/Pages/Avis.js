@@ -8,9 +8,9 @@ function Avis() {
         <div style={{padding:15,paddingBottom:100}}>
             <h2 style={{textAlign:'center'}}>L'avis des gamers sur notre platforme</h2>
         <div style={{alignContent:'center',display:'flex'}}>
-        <AvisSimple text={"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."} logo={Avatar1} pseudo={'Alcyone Sneaky'} team={'Alcyone'}/>
-        <AvisSimple text={"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."} logo={Avatar2} pseudo={'KIP'} team={'Alcyone'}/>
-        <AvisSimple text={"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."} logo={Avatar3} pseudo={'Darksnaken'} team={'Alcyone'}/>
+        <AvisSimple text={"Depuis que j'utilise ce site je gagne du temps, pour me focus sur mes games"} logo={Avatar1} pseudo={'Alcyone Sneaky'} team={'Alcyone'}/>
+        <AvisSimple text={"J'aime trop pouvoir regarder plusieurs stream en même temps"} logo={Avatar2} pseudo={'KIP'} team={'Alcyone'}/>
+        <AvisSimple text={"Les stats , j'adore !!!"} logo={Avatar3} pseudo={'Darksnaken'} team={'Alcyone'}/>
         </div>
         </div>
     );

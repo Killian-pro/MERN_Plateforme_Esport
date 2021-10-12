@@ -73,10 +73,7 @@ function Home() {
             réel sur tous les jeux du moment
           </div>
           <div className="subtitle">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Duis vel felis at metus sodales cursus et eget sapien.
-            Proin iaculis, sapien et faucibus volutpat, nisl augue mattis lacus,
-            id egestas sapien velit eu lectus. Praesent ac sem lectus. Cras vel mollis lacus.
+           Chaques jours suivé vos statistiques ou celle de vos alliés à travers de notre outil.
           </div>
           <div className="end">
             <Link to="/Stats">
@@ -89,10 +86,7 @@ function Home() {
 
         <div className="soustitress">
           <div className="title">Rechercher grâce à notre outil des joueurs et des équipes</div>
-          <div className="subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Duis vel felis at metus sodales cursus et eget sapien.
-            Proin iaculis, sapien et faucibus volutpat, nisl augue mattis lacus,
-            id egestas sapien velit eu lectus. Praesent ac sem lectus. Cras vel mollis lacus.</div>
+          <div className="subtitle">Plus besoin d'aller bien loin pour chercher vos mates ! Trouver le cohéquipier qui vous correspond ICI !</div>
           <div className="start">
             <Link to="/Recrutement">
               <button type="button" class="btnplus">Voir plus</button>
@@ -109,10 +103,7 @@ function Home() {
             Regardez vos streamers favoris en un simple clic
           </div>
           <div className="subtitle">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Duis vel felis at metus sodales cursus et eget sapien.
-            Proin iaculis, sapien et faucibus volutpat, nisl augue mattis lacus,
-            id egestas sapien velit eu lectus. Praesent ac sem lectus. Cras vel mollis lacus.
+            Vous voulez voir plusieurs gameplay en même temps ou alors voir votre streamer favoris ! Cette partie est faite pour vous !
           </div>
           <div className="end">
             <Link to="/Streams">

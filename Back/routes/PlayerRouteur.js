@@ -13,6 +13,10 @@ router.route('/').post((req,res)=>
   const pseudo = req.body.pseudo;
   const avatar = req.body.avatar;
   const streamUrl = req.body.streamUrl;
+  const ambition = req.body.ambition;
+  const experience = req.body.experience;
+  const rank = req.body.rank;
+  const description = req.body.description;
 
   const NewPlayer = new Player(
     {
@@ -22,7 +26,12 @@ router.route('/').post((req,res)=>
       mail,
       pseudo,
       avatar,
-      streamUrl
+      streamUrl,
+      experience,
+      ambition,
+      rank,
+      description,
+
     });
     NewPlayer.save()
 }
