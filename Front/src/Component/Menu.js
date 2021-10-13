@@ -4,7 +4,7 @@ import '../Style/News.css';
 import {
     Link
 } from "react-router-dom";
-import logo from '../Img/logo.gif'
+import logo from '../Img/logo1.gif'
 
 function Menu() {
 
